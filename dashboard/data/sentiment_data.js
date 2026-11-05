@@ -1,0 +1,2281 @@
+window.SENTIMENT_DATA = {
+  "metadata": {
+    "title": "Analisis Sentimen Publik Terhadap Redenominasi Rupiah",
+    "source_topic": "Kebijakan Menkeu Purbaya Yudhi Sadewa (YouTube Comments)",
+    "generated_at": "2026-11-05T12:55:42.377893",
+    "authors": [
+      {
+        "name": "Kartika Nur Savira",
+        "nim": "24031554049"
+      },
+      {
+        "name": "Sabrina Putri Amalia",
+        "nim": "24031554055"
+      },
+      {
+        "name": "Variesa Sabita Mumtaza Habib",
+        "nim": "24031554083"
+      }
+    ],
+    "institution": "Data Science - Universitas Negeri Surabaya (UNESA)"
+  },
+  "kpi": {
+    "total_comments": 896,
+    "raw_comments": 900,
+    "positive_count": 341,
+    "positive_pct": 38.1,
+    "neutral_count": 383,
+    "neutral_pct": 42.7,
+    "negative_count": 172,
+    "negative_pct": 19.2,
+    "best_model_name": "Linear SVM",
+    "best_model_accuracy": 81.11,
+    "nb_model_accuracy": 70.56
+  },
+  "models_benchmark": {
+    "Naive Bayes": {
+      "accuracy": 70.56,
+      "precision": 72.0,
+      "recall": 71.0,
+      "f1_score": 68.0,
+      "confusion_matrix": [
+        [
+          8,
+          26,
+          1
+        ],
+        [
+          1,
+          59,
+          17
+        ],
+        [
+          1,
+          7,
+          60
+        ]
+      ]
+    },
+    "Linear SVM": {
+      "accuracy": 81.11,
+      "precision": 82.0,
+      "recall": 81.0,
+      "f1_score": 81.0,
+      "confusion_matrix": [
+        [
+          26,
+          6,
+          3
+        ],
+        [
+          8,
+          59,
+          10
+        ],
+        [
+          4,
+          3,
+          61
+        ]
+      ]
+    },
+    "Logistic Regression": {
+      "accuracy": 79.44,
+      "precision": 80.0,
+      "recall": 79.0,
+      "f1_score": 79.0,
+      "confusion_matrix": [
+        [
+          24,
+          8,
+          3
+        ],
+        [
+          7,
+          60,
+          10
+        ],
+        [
+          5,
+          4,
+          59
+        ]
+      ]
+    }
+  },
+  "aspect_analysis": {
+    "Pemberantasan Korupsi": {
+      "total": 336,
+      "positif": 133,
+      "netral": 129,
+      "negatif": 74,
+      "sample_comments": [
+        {
+          "comment": "rakyat menolak redenominasi ha ce bagi koruptor menukar uang hasil kejahatan",
+          "sentiment": -1,
+          "author": "@RusliMus-v7h"
+        },
+        {
+          "comment": "kacau nanti uang palsu marak beredar memanfaatkan ketidaktahuan warga desa",
+          "sentiment": -1,
+          "author": "@kunanabae7970"
+        },
+        {
+          "comment": "teknis penukaran uang lama uang baru pasar tradisional warung kelontong",
+          "sentiment": 0,
+          "author": "@Sity-x4r"
+        }
+      ]
+    },
+    "Sosialisasi & Uang Fisik": {
+      "total": 298,
+      "positif": 74,
+      "netral": 175,
+      "negatif": 49,
+      "sample_comments": [
+        {
+          "comment": "sangat mantap pak mengurangi pemborosan kertas nota cetak mempermudah sistem akuntansi digital",
+          "sentiment": 1,
+          "author": "@BapakOppoa17k-d4i"
+        },
+        {
+          "comment": "sangat mantap pak mengurangi pemborosan kertas nota cetak mempermudah sistem akuntansi digital",
+          "sentiment": 1,
+          "author": "@NurulHidayah_Yogya"
+        },
+        {
+          "comment": "kacau nanti uang palsu marak beredar memanfaatkan ketidaktahuan warga desa",
+          "sentiment": -1,
+          "author": "@kunanabae7970"
+        }
+      ]
+    },
+    "Kondisi Ekonomi & Harga": {
+      "total": 322,
+      "positif": 77,
+      "netral": 144,
+      "negatif": 101,
+      "sample_comments": [
+        {
+          "comment": "rakyat menolak redenominasi ha ce bagi koruptor menukar uang hasil kejahatan",
+          "sentiment": -1,
+          "author": "@RusliMus-v7h"
+        },
+        {
+          "comment": "saya setuju pak negara lain turki sukses redenominasi tanpa ada inflasi",
+          "sentiment": 1,
+          "author": "@AhmadFauzi_99"
+        },
+        {
+          "comment": "tidak tepat waktu ekonomi global krisis nilai rupiah tertekan",
+          "sentiment": -1,
+          "author": "@BapakOppoa17k-d4i"
+        }
+      ]
+    },
+    "Martabat & Nilai Tukar Rupiah": {
+      "total": 495,
+      "positif": 214,
+      "netral": 187,
+      "negatif": 94,
+      "sample_comments": [
+        {
+          "comment": "rakyat menolak redenominasi ha ce bagi koruptor menukar uang hasil kejahatan",
+          "sentiment": -1,
+          "author": "@RusliMus-v7h"
+        },
+        {
+          "comment": "tidak tepat waktu ekonomi global krisis nilai rupiah tertekan",
+          "sentiment": -1,
+          "author": "@BapakOppoa17k-d4i"
+        },
+        {
+          "comment": "salut hormat pak menteri yang berani mengambil lang strategis jangka panjang",
+          "sentiment": 1,
+          "author": "@christianwilysoncitra3077"
+        }
+      ]
+    },
+    "Umum / Lainnya": {
+      "total": 137,
+      "positif": 45,
+      "netral": 77,
+      "negatif": 15,
+      "sample_comments": [
+        {
+          "comment": "tabungan rekening bank otomatis berubah digit tanggal yang ditentukan",
+          "sentiment": 0,
+          "author": "@SitiRahmawati_Sby"
+        },
+        {
+          "comment": "semua ada plus minus tinggal regulasi pengawasan lapangan nanti",
+          "sentiment": 0,
+          "author": "@NurulHidayah_Yogya"
+        },
+        {
+          "comment": "buruk sekali dampak bagi pedagang kelontong yang margin untung cuma ratusan perak",
+          "sentiment": -1,
+          "author": "@iyyahaja5249"
+        }
+      ]
+    }
+  },
+  "top_words": {
+    "overall": [
+      {
+        "word": "uang",
+        "count": 315
+      },
+      {
+        "word": "pak",
+        "count": 219
+      },
+      {
+        "word": "sangat",
+        "count": 216
+      },
+      {
+        "word": "rupiah",
+        "count": 200
+      },
+      {
+        "word": "tidak",
+        "count": 184
+      },
+      {
+        "word": "setuju",
+        "count": 173
+      },
+      {
+        "word": "yang",
+        "count": 145
+      },
+      {
+        "word": "ada",
+        "count": 128
+      },
+      {
+        "word": "baru",
+        "count": 124
+      },
+      {
+        "word": "redenominasi",
+        "count": 120
+      },
+      {
+        "word": "menteri",
+        "count": 118
+      },
+      {
+        "word": "rakyat",
+        "count": 96
+      },
+      {
+        "word": "nilai",
+        "count": 87
+      },
+      {
+        "word": "keuangan",
+        "count": 85
+      },
+      {
+        "word": "harga",
+        "count": 82
+      },
+      {
+        "word": "mata",
+        "count": 81
+      },
+      {
+        "word": "mantap",
+        "count": 75
+      },
+      {
+        "word": "negara",
+        "count": 72
+      },
+      {
+        "word": "ekonomi",
+        "count": 70
+      },
+      {
+        "word": "kami",
+        "count": 68
+      }
+    ],
+    "per_sentiment": {
+      "Positif": [
+        {
+          "word": "sangat",
+          "count": 193
+        },
+        {
+          "word": "pak",
+          "count": 173
+        },
+        {
+          "word": "setuju",
+          "count": 145
+        },
+        {
+          "word": "rupiah",
+          "count": 90
+        },
+        {
+          "word": "uang",
+          "count": 86
+        },
+        {
+          "word": "mata",
+          "count": 81
+        },
+        {
+          "word": "mantap",
+          "count": 75
+        },
+        {
+          "word": "yang",
+          "count": 73
+        },
+        {
+          "word": "menteri",
+          "count": 66
+        },
+        {
+          "word": "keuangan",
+          "count": 66
+        },
+        {
+          "word": "redenominasi",
+          "count": 59
+        },
+        {
+          "word": "kami",
+          "count": 55
+        },
+        {
+          "word": "tidak",
+          "count": 53
+        },
+        {
+          "word": "kebijakan",
+          "count": 52
+        },
+        {
+          "word": "semoga",
+          "count": 45
+        }
+      ],
+      "Netral": [
+        {
+          "word": "uang",
+          "count": 155
+        },
+        {
+          "word": "rupiah",
+          "count": 105
+        },
+        {
+          "word": "baru",
+          "count": 88
+        },
+        {
+          "word": "ada",
+          "count": 79
+        },
+        {
+          "word": "tahun",
+          "count": 57
+        },
+        {
+          "word": "tidak",
+          "count": 56
+        },
+        {
+          "word": "perlu",
+          "count": 54
+        },
+        {
+          "word": "bank",
+          "count": 46
+        },
+        {
+          "word": "lama",
+          "count": 45
+        },
+        {
+          "word": "pasar",
+          "count": 45
+        },
+        {
+          "word": "10",
+          "count": 45
+        },
+        {
+          "word": "1",
+          "count": 44
+        },
+        {
+          "word": "masyarakat",
+          "count": 43
+        },
+        {
+          "word": "otomatis",
+          "count": 42
+        },
+        {
+          "word": "fisik",
+          "count": 42
+        }
+      ],
+      "Negatif": [
+        {
+          "word": "tidak",
+          "count": 75
+        },
+        {
+          "word": "uang",
+          "count": 74
+        },
+        {
+          "word": "rakyat",
+          "count": 50
+        },
+        {
+          "word": "harga",
+          "count": 43
+        },
+        {
+          "word": "dulu",
+          "count": 40
+        },
+        {
+          "word": "bikin",
+          "count": 39
+        },
+        {
+          "word": "ma",
+          "count": 36
+        },
+        {
+          "word": "baru",
+          "count": 36
+        },
+        {
+          "word": "yang",
+          "count": 33
+        },
+        {
+          "word": "ha",
+          "count": 29
+        },
+        {
+          "word": "setuju",
+          "count": 28
+        },
+        {
+          "word": "kecil",
+          "count": 28
+        },
+        {
+          "word": "pedagang",
+          "count": 28
+        },
+        {
+          "word": "sembako",
+          "count": 26
+        },
+        {
+          "word": "korupsi",
+          "count": 24
+        }
+      ]
+    }
+  },
+  "summaries": {
+    "positif": "Komentar positif menekankan sosialisasi fisik uang berjalan baik, tidak membingungkan masyarakat, serta penambahan nilai dan martabat rupiah berjalan lancar.",
+    "netral": "Komentar netral menyebutkan fakta sejarah (1970), persiapan teknis penukaran uang di bank/pos pelosok nusantara, dan masa transisi nominal harga.",
+    "negatif": "Komentar negatif menyoroti risiko uang koruptor yang disimpan di kontrakan/kamar, serta menuntut prioritas penurunan harga sembako dan stabilitas bbm terlebih dahulu."
+  },
+  "sample_comments": [
+    {
+      "author": "@RusliMus-v7h",
+      "raw_comment": "Rakyat menolak jika redenominasi ini hanya jadi celah bagi koruptor untuk menukar uang hasil kejahatannya.",
+      "comment": "rakyat menolak redenominasi ha ce bagi koruptor menukar uang hasil kejahatan",
+      "likes": 0,
+      "published_at": "2025-12-16T05:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "rakyat menolak redenominasi bagi koruptor menukar hasil kejahatan",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@BapakOppoa17k-d4i",
+      "raw_comment": "Sangat mantap pak, mengurangi pemborosan kertas nota cetak dan mempermudah sistem akuntansi digital.",
+      "comment": "sangat mantap pak mengurangi pemborosan kertas nota cetak mempermudah sistem akuntansi digital",
+      "likes": 1,
+      "published_at": "2025-12-13T01:00:00Z",
+      "tanggal": "2025-12-13",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat mantap mengurangi pemborosan kertas nota cetak mempermudah sistem akuntansi digital",
+      "aspects": [
+        "Sosialisasi & Uang Fisik"
+      ]
+    },
+    {
+      "author": "@SitiRahmawati_Sby",
+      "raw_comment": "Apakah tabungan di rekening bank otomatis berubah digitnya pada tanggal yang ditentukan?",
+      "comment": "tabungan rekening bank otomatis berubah digit tanggal yang ditentukan",
+      "likes": 3,
+      "published_at": "2025-12-13T06:00:00Z",
+      "tanggal": "2025-12-13",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "tabungan rekening bank otomatis berubah digit tanggal yang ditentukan",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@AhmadFauzi_99",
+      "raw_comment": "Saya setuju pak, negara lain seperti turki juga sukses redenominasi tanpa ada inflasi.",
+      "comment": "saya setuju pak negara lain turki sukses redenominasi tanpa ada inflasi",
+      "likes": 14,
+      "published_at": "2025-12-10T05:00:00Z",
+      "tanggal": "2025-12-10",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "saya setuju negara lain turki sukses redenominasi tanpa inflasi",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@BapakOppoa17k-d4i",
+      "raw_comment": "Tidak tepat waktunya saat ekonomi global lagi krisis dan nilai rupiah sedang tertekan.",
+      "comment": "tidak tepat waktu ekonomi global krisis nilai rupiah tertekan",
+      "likes": 45,
+      "published_at": "2025-12-11T19:00:00Z",
+      "tanggal": "2025-12-11",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "tidak tepat waktu ekonomi global krisis nilai tertekan",
+      "aspects": [
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@NurulHidayah_Yogya",
+      "raw_comment": "Sangat mantap pak, mengurangi pemborosan kertas nota cetak dan mempermudah sistem akuntansi digital.",
+      "comment": "sangat mantap pak mengurangi pemborosan kertas nota cetak mempermudah sistem akuntansi digital",
+      "likes": 120,
+      "published_at": "2025-12-15T10:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat mantap mengurangi pemborosan kertas nota cetak mempermudah sistem akuntansi digital",
+      "aspects": [
+        "Sosialisasi & Uang Fisik"
+      ]
+    },
+    {
+      "author": "@christianwilysoncitra3077",
+      "raw_comment": "Salut dan hormat untuk pak menteri yang berani mengambil langkah strategis jangka panjang.",
+      "comment": "salut hormat pak menteri yang berani mengambil lang strategis jangka panjang",
+      "likes": 1,
+      "published_at": "2025-12-10T19:00:00Z",
+      "tanggal": "2025-12-10",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "salut hormat yang berani mengambil lang strategis jangka panjang",
+      "aspects": [
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@AlyaLiya-j3r",
+      "raw_comment": "Sip mantap, asalkan nilai tukar dan daya beli tetap aman, redenominasi adalah solusi terbaik.",
+      "comment": "sip mantap asalkan nilai tukar daya beli tetap aman redenominasi ada solusi terbaik",
+      "likes": 120,
+      "published_at": "2025-12-10T23:00:00Z",
+      "tanggal": "2025-12-10",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sip mantap asalkan nilai tukar daya beli tetap aman redenominasi solusi terbaik",
+      "aspects": [
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@HendraKurnia88",
+      "raw_comment": "Sangat setuju gasss secepatnya pak, kami sangat setuju agar rupiah tidak dipandang sebelah mata lagi.",
+      "comment": "sangat setuju gas secepat pak kami sangat setuju rupiah tidak dipandang sebe mata",
+      "likes": 120,
+      "published_at": "2025-12-14T20:00:00Z",
+      "tanggal": "2025-12-14",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat setuju gas secepat kami sangat setuju tidak dipandang sebe mata",
+      "aspects": [
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@kunanabae7970",
+      "raw_comment": "Kacau kalau nanti uang palsu marak beredar memanfaatkan ketidaktahuan warga desa.",
+      "comment": "kacau nanti uang palsu marak beredar memanfaatkan ketidaktahuan warga desa",
+      "likes": 4,
+      "published_at": "2025-12-10T23:00:00Z",
+      "tanggal": "2025-12-10",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "kacau nanti palsu marak beredar memanfaatkan ketidaktahuan warga desa",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@muhammadsyahrir6771",
+      "raw_comment": "Kalau ingin mensejasterakan rakyat kecil di pelosok nkri semua orang harus punya tabungan di bank atau kantor pos.",
+      "comment": "mensejasterakan rakyat kecil pelosok nkri semua orang pu tabungan bank kantor pos",
+      "likes": 8,
+      "published_at": "2025-12-09T08:00:00Z",
+      "tanggal": "2025-12-09",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "mensejasterakan rakyat kecil pelosok nkri semua orang tabungan bank kantor pos",
+      "aspects": [
+        "Sosialisasi & Uang Fisik",
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@sudirmanbadrun1501",
+      "raw_comment": "Sangat positif respons kami di daerah, semoga segera terealisasi dengan amanah.",
+      "comment": "sangat positif respons kami daerah semoga segera terealisasi amanah",
+      "likes": 120,
+      "published_at": "2025-12-13T16:00:00Z",
+      "tanggal": "2025-12-13",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat positif respons kami daerah semoga segera terealisasi amanah",
+      "aspects": [
+        "Sosialisasi & Uang Fisik"
+      ]
+    },
+    {
+      "author": "@Sity-x4r",
+      "raw_comment": "Bagaimana teknis penukaran uang lama ke uang baru di pasar tradisional dan warung kelontong?",
+      "comment": "teknis penukaran uang lama uang baru pasar tradisional warung kelontong",
+      "likes": 75,
+      "published_at": "2025-12-16T07:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "teknis penukaran lama baru pasar tradisional warung kelontong",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@SitiRahmawati_Sby",
+      "raw_comment": "Saya setuju pak, negara lain seperti turki juga sukses redenominasi tanpa ada inflasi.",
+      "comment": "saya setuju pak negara lain turki sukses redenominasi tanpa ada inflasi",
+      "likes": 0,
+      "published_at": "2025-12-13T20:00:00Z",
+      "tanggal": "2025-12-13",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "saya setuju negara lain turki sukses redenominasi tanpa inflasi",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@BustanuddinLubis",
+      "raw_comment": "Korupsi masih merajalela, nanti duit haram yang ditimbun malah mudah dicuci lewat penukaran uang baru.",
+      "comment": "korupsi merajalela nanti duit haram yang ditimbun ma mudah dicuci lewat penukaran uang baru",
+      "likes": 0,
+      "published_at": "2025-12-15T05:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "korupsi merajalela nanti duit haram yang ditimbun mudah dicuci lewat penukaran baru",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@HendraKurnia88",
+      "raw_comment": "Sangat bagus dan keren terobosan menteri keuangan, saatnya rupiah setara dengan mata uang dunia.",
+      "comment": "sangat bagus keren terobosan menteri keuangan rupiah setara mata uang dunia",
+      "likes": 14,
+      "published_at": "2025-12-11T11:00:00Z",
+      "tanggal": "2025-12-11",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat bagus keren terobosan setara mata dunia",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@BapakOppoa17k-d4i",
+      "raw_comment": "Mantul banget pak menkeu, saatnya hilangkan 3 angka nol agar uang kita tidak ribet dihitung.",
+      "comment": "mantap banget pak menkeu hilangkan 3 angka nol uang kita tidak ribet dihitung",
+      "likes": 5,
+      "published_at": "2025-12-16T15:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "mantap banget menkeu hilangkan angka nol kita tidak ribet dihitung",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@sudirmanbadrun1501",
+      "raw_comment": "Informasi sosialisasi lewat media televisi dan radio harus menjangkau hingga ke perbatasan negara.",
+      "comment": "informasi sosialisasi lewat media televisi radio menjangkau perbatasan negara",
+      "likes": 25,
+      "published_at": "2025-12-11T21:00:00Z",
+      "tanggal": "2025-12-11",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "informasi sosialisasi lewat media televisi radio menjangkau perbatasan negara",
+      "aspects": [
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@muhammadsyahrir6771",
+      "raw_comment": "Tidak setuju! Lebih baik perbaiki dulu ekonomi rakyat kecil dan turunkan harga bbm serta sembako.",
+      "comment": "tidak setuju baik perbaiki dulu ekonomi rakyat kecil turunkan harga bbm serta sembako",
+      "likes": 1,
+      "published_at": "2025-12-10T02:00:00Z",
+      "tanggal": "2025-12-10",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "tidak setuju baik perbaiki dulu ekonomi rakyat kecil turunkan harga bbm serta sembako",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@PERI-t7m",
+      "raw_comment": "Lebih baik harus ada waktu sosialisasi fisik uang yang matang agar tidak membingungkan masyarakat.",
+      "comment": "baik ada waktu sosialisasi fisik uang yang matang tidak membingungkan masyarakat",
+      "likes": 0,
+      "published_at": "2025-12-10T19:00:00Z",
+      "tanggal": "2025-12-10",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "baik waktu sosialisasi fisik yang matang tidak membingungkan masyarakat",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@Sity-x4r",
+      "raw_comment": "Sangat mantap pak, mengurangi pemborosan kertas nota cetak dan mempermudah sistem akuntansi digital.",
+      "comment": "sangat mantap pak mengurangi pemborosan kertas nota cetak mempermudah sistem akuntansi digital",
+      "likes": 38,
+      "published_at": "2025-12-15T22:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat mantap mengurangi pemborosan kertas nota cetak mempermudah sistem akuntansi digital",
+      "aspects": [
+        "Sosialisasi & Uang Fisik"
+      ]
+    },
+    {
+      "author": "@RusmanBarini",
+      "raw_comment": "Mantul banget pak menkeu, saatnya hilangkan 3 angka nol agar uang kita tidak ribet dihitung.",
+      "comment": "mantap banget pak menkeu hilangkan 3 angka nol uang kita tidak ribet dihitung",
+      "likes": 0,
+      "published_at": "2025-12-10T15:00:00Z",
+      "tanggal": "2025-12-10",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "mantap banget menkeu hilangkan angka nol kita tidak ribet dihitung",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@HendraKurnia88",
+      "raw_comment": "Bohong besar kalau tidak bikin inflasi, pasti pedagang nakal bakal menaikkan harga dengan pembulatan ke atas!",
+      "comment": "bohong besar tidak bikin inflasi pedagang nakal menaikkan harga pembulatan",
+      "likes": 1,
+      "published_at": "2025-12-16T16:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "bohong besar tidak bikin inflasi pedagang nakal menaikkan harga pembulatan",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@RianPratama92",
+      "raw_comment": "Bagus sekali gebrakan menkeu purbaya yudi sadewa, optimis rupiah makin kuat dan berwibawa.",
+      "comment": "bagus sekali gebrakan menteri keuangan purbaya yudi sadewa optimis rupiah kuat berwibawa",
+      "likes": 120,
+      "published_at": "2025-12-12T02:00:00Z",
+      "tanggal": "2025-12-12",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "bagus sekali gebrakan purbaya yudi sadewa optimis kuat berwibawa",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@NurulHidayah_Yogya",
+      "raw_comment": "Semua ada plus minusnya, tinggal bagaimana regulasi dan pengawasannya di lapangan nanti.",
+      "comment": "semua ada plus minus tinggal regulasi pengawasan lapangan nanti",
+      "likes": 0,
+      "published_at": "2025-12-16T01:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "semua plus minus tinggal regulasi pengawasan lapangan nanti",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@BudiSantoso_Jkt",
+      "raw_comment": "Kalau ingin mensejasterakan rakyat kecil di pelosok nkri semua orang harus punya tabungan di bank atau kantor pos.",
+      "comment": "mensejasterakan rakyat kecil pelosok nkri semua orang pu tabungan bank kantor pos",
+      "likes": 0,
+      "published_at": "2025-12-14T13:00:00Z",
+      "tanggal": "2025-12-14",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "mensejasterakan rakyat kecil pelosok nkri semua orang tabungan bank kantor pos",
+      "aspects": [
+        "Sosialisasi & Uang Fisik",
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@iyyahaja5249",
+      "raw_comment": "Parah sekali dampaknya bagi pedagang kelontong yang margin untungnya cuma ratusan perak.",
+      "comment": "buruk sekali dampak bagi pedagang kelontong yang margin untung cuma ratusan perak",
+      "likes": 12,
+      "published_at": "2025-12-09T11:00:00Z",
+      "tanggal": "2025-12-09",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "buruk sekali dampak bagi pedagang kelontong yang margin untung cuma ratusan perak",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@RiniAstuti_Mlg",
+      "raw_comment": "Apakah tabungan di rekening bank otomatis berubah digitnya pada tanggal yang ditentukan?",
+      "comment": "tabungan rekening bank otomatis berubah digit tanggal yang ditentukan",
+      "likes": 0,
+      "published_at": "2025-12-16T15:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "tabungan rekening bank otomatis berubah digit tanggal yang ditentukan",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@AhmadFauzi_99",
+      "raw_comment": "Tahun 2026 atau 2027 mungkin waktu yang tepat jika inflasi dan pertumbuhan ekonomi terjaga stabil.",
+      "comment": "tahun 2026 2027 waktu yang tepat inflasi pertumbuhan ekonomi terjaga stabil",
+      "likes": 0,
+      "published_at": "2025-12-15T08:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "2026 2027 waktu yang tepat inflasi pertumbuhan ekonomi terjaga stabil",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@FitriHandayani_Bdg",
+      "raw_comment": "Bagus sekali gebrakan menkeu purbaya yudi sadewa, optimis rupiah makin kuat dan berwibawa.",
+      "comment": "bagus sekali gebrakan menteri keuangan purbaya yudi sadewa optimis rupiah kuat berwibawa",
+      "likes": 0,
+      "published_at": "2025-12-13T18:00:00Z",
+      "tanggal": "2025-12-13",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "bagus sekali gebrakan purbaya yudi sadewa optimis kuat berwibawa",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@DoniKusuma_Smg",
+      "raw_comment": "Tidak masuk akal di saat harga pangan dan sembako masih mahal malah sibuk mengurus potong angka nol.",
+      "comment": "tidak masuk akal harga pangan sembako mahal ma sibuk mengurus potong angka nol",
+      "likes": 45,
+      "published_at": "2025-12-11T17:00:00Z",
+      "tanggal": "2025-12-11",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "tidak masuk akal harga pangan sembako mahal sibuk mengurus potong angka nol",
+      "aspects": [
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@muhammadsyahrir6771",
+      "raw_comment": "Sangat setuju pak, redenominasi membuat perhitungan nilai uang rupiah jadi lebih simpel dan efisien.",
+      "comment": "sangat setuju pak redenominasi membuat perhitungan nilai uang rupiah simpel efisien",
+      "likes": 0,
+      "published_at": "2025-12-14T08:00:00Z",
+      "tanggal": "2025-12-14",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat setuju redenominasi membuat perhitungan nilai simpel efisien",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@DoniKusuma_Smg",
+      "raw_comment": "Masyarakat pelosok membutuhkan contoh gambar uang fisik baru agar terbiasa membedakannya.",
+      "comment": "masyarakat pelosok membutuhkan contoh gambar uang fisik baru terbiasa membedakan",
+      "likes": 75,
+      "published_at": "2025-12-11T04:00:00Z",
+      "tanggal": "2025-12-11",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "masyarakat pelosok membutuhkan contoh gambar fisik baru terbiasa membedakan",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@ajukheri4036",
+      "raw_comment": "Sangat bagus dan keren terobosan menteri keuangan, saatnya rupiah setara dengan mata uang dunia.",
+      "comment": "sangat bagus keren terobosan menteri keuangan rupiah setara mata uang dunia",
+      "likes": 14,
+      "published_at": "2025-12-14T11:00:00Z",
+      "tanggal": "2025-12-14",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat bagus keren terobosan setara mata dunia",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@FitriHandayani_Bdg",
+      "raw_comment": "Sangat setuju kebijakan yang luar biasa jempolan, semoga membawa berkah bagi pertumbuhan ekonomi kita.",
+      "comment": "sangat setuju kebijakan yang luar biasa jempolan semoga membawa ber bagi pertumbuhan ekonomi kita",
+      "likes": 5,
+      "published_at": "2025-12-11T03:00:00Z",
+      "tanggal": "2025-12-11",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat setuju kebijakan yang luar biasa jempolan semoga membawa ber bagi pertumbuhan ekonomi kita",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@RusmanBarini",
+      "raw_comment": "Inovasi cemerlang, pencatatan keuangan negara dan umkm jadi jauh lebih rapi dan ringkas.",
+      "comment": "inovasi cemerlang pencatatan keuangan negara umkm jauh rapi ringkas",
+      "likes": 2,
+      "published_at": "2025-12-12T01:00:00Z",
+      "tanggal": "2025-12-12",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "inovasi cemerlang pencatatan negara umkm jauh rapi ringkas",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@BudiSantoso_Jkt",
+      "raw_comment": "Apakah uang rp 1000 nanti jadi rp 1 atau bagaimana perhitungannya pak menteri?",
+      "comment": "uang rupiah 10 nanti rupiah 1 perhitungan pak menteri",
+      "likes": 25,
+      "published_at": "2025-12-11T11:00:00Z",
+      "tanggal": "2025-12-11",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "nanti perhitungan",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@christianwilysoncitra3077",
+      "raw_comment": "Berapa lama estimasi waktu pencetakan uang fisik baru dan penarikan uang beredar saat ini?",
+      "comment": "lama estimasi waktu pencetakan uang fisik baru penarikan uang beredar",
+      "likes": 75,
+      "published_at": "2025-12-15T09:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "lama estimasi waktu pencetakan fisik baru penarikan beredar",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@RiniAstuti_Mlg",
+      "raw_comment": "Kembali ke thn 1970 saat nilai rupiah masih menggunakan pecahan kecil.",
+      "comment": "kembali tahun 1970 nilai rupiah menggunakan pecahan kecil",
+      "likes": 0,
+      "published_at": "2025-12-12T19:00:00Z",
+      "tanggal": "2025-12-12",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "kembali 1970 nilai menggunakan pecahan kecil",
+      "aspects": [
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@AlyaLiya-j3r",
+      "raw_comment": "Lebih baik harus ada waktu sosialisasi fisik uang yang matang agar tidak membingungkan masyarakat.",
+      "comment": "baik ada waktu sosialisasi fisik uang yang matang tidak membingungkan masyarakat",
+      "likes": 0,
+      "published_at": "2025-12-13T04:00:00Z",
+      "tanggal": "2025-12-13",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "baik waktu sosialisasi fisik yang matang tidak membingungkan masyarakat",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@ajukheri4036",
+      "raw_comment": "Tidak setuju! Lebih baik perbaiki dulu ekonomi rakyat kecil dan turunkan harga bbm serta sembako.",
+      "comment": "tidak setuju baik perbaiki dulu ekonomi rakyat kecil turunkan harga bbm serta sembako",
+      "likes": 180,
+      "published_at": "2025-12-15T14:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "tidak setuju baik perbaiki dulu ekonomi rakyat kecil turunkan harga bbm serta sembako",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@NurulHidayah_Yogya",
+      "raw_comment": "Saya setuju pak, negara lain seperti turki juga sukses redenominasi tanpa ada inflasi.",
+      "comment": "saya setuju pak negara lain turki sukses redenominasi tanpa ada inflasi",
+      "likes": 1,
+      "published_at": "2025-12-11T06:00:00Z",
+      "tanggal": "2025-12-11",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "saya setuju negara lain turki sukses redenominasi tanpa inflasi",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@RusliMus-v7h",
+      "raw_comment": "Salut dan hormat untuk pak menteri yang berani mengambil langkah strategis jangka panjang.",
+      "comment": "salut hormat pak menteri yang berani mengambil lang strategis jangka panjang",
+      "likes": 120,
+      "published_at": "2025-12-12T05:00:00Z",
+      "tanggal": "2025-12-12",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "salut hormat yang berani mengambil lang strategis jangka panjang",
+      "aspects": [
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@christianwilysoncitra3077",
+      "raw_comment": "Nilai kurs rupiah terhadap dolar amerika apakah otomatis ikut disesuaikan saat redenominasi?",
+      "comment": "nilai kurs rupiah dolar amerika otomatis ikut disesuaikan redenominasi",
+      "likes": 75,
+      "published_at": "2025-12-11T19:00:00Z",
+      "tanggal": "2025-12-11",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "nilai kurs dolar amerika otomatis ikut disesuaikan redenominasi",
+      "aspects": [
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@muhammadsyahrir6771",
+      "raw_comment": "Setuju banget kami sekeluarga di kalbar mendukung penuh kebijakan pak purbaya.",
+      "comment": "setuju banget kami sekeluarga kalbar mendukung penuh kebijakan pak purbaya",
+      "likes": 120,
+      "published_at": "2025-12-12T09:00:00Z",
+      "tanggal": "2025-12-12",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "setuju banget kami sekeluarga kalbar mendukung penuh kebijakan purbaya",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@HendraKurnia88",
+      "raw_comment": "Semoga ada masa transisi 5 sampai 10 tahun agar masyarakat desa tidak kaget dengan nominal baru.",
+      "comment": "semoga ada masa transisi 5 10 tahun masyarakat desa tidak kaget nominal baru",
+      "likes": 8,
+      "published_at": "2025-12-15T15:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "semoga masa transisi masyarakat desa tidak kaget nominal baru",
+      "aspects": [
+        "Sosialisasi & Uang Fisik"
+      ]
+    },
+    {
+      "author": "@FitriHandayani_Bdg",
+      "raw_comment": "Salut dan hormat untuk pak menteri yang berani mengambil langkah strategis jangka panjang.",
+      "comment": "salut hormat pak menteri yang berani mengambil lang strategis jangka panjang",
+      "likes": 38,
+      "published_at": "2025-12-12T17:00:00Z",
+      "tanggal": "2025-12-12",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "salut hormat yang berani mengambil lang strategis jangka panjang",
+      "aspects": [
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@AhmadFauzi_99",
+      "raw_comment": "Fakta sejarah redenominasi memang pernah direncanakan sejak era menteri sebelumnya.",
+      "comment": "fakta sejarah redenominasi direncanakan sejak era menteri",
+      "likes": 8,
+      "published_at": "2025-12-16T18:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "fakta sejarah redenominasi direncanakan sejak era",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@sudirmanbadrun1501",
+      "raw_comment": "Sangat setuju bagus sekali gebrakan menkeu purbaya yudi sadewa, optimis rupiah makin kuat dan berwibawa.",
+      "comment": "sangat setuju bagus sekali gebrakan menteri keuangan purbaya yudi sadewa optimis rupiah kuat berwibawa",
+      "likes": 1,
+      "published_at": "2025-12-13T23:00:00Z",
+      "tanggal": "2025-12-13",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat setuju bagus sekali gebrakan purbaya yudi sadewa optimis kuat berwibawa",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@christianwilysoncitra3077",
+      "raw_comment": "Fakta sejarah redenominasi memang pernah direncanakan sejak era menteri sebelumnya.",
+      "comment": "fakta sejarah redenominasi direncanakan sejak era menteri",
+      "likes": 0,
+      "published_at": "2025-12-09T01:00:00Z",
+      "tanggal": "2025-12-09",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "fakta sejarah redenominasi direncanakan sejak era",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@HendraKurnia88",
+      "raw_comment": "Bagi pedagang pasar, uang pecahan koin rp 1 dan sen perlu disiapkan dengan cukup agar ada kembalian.",
+      "comment": "bagi pedagang pasar uang pecahan koin rupiah 1 sen perlu disiapkan ada kembalian",
+      "likes": 0,
+      "published_at": "2025-12-16T15:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "bagi pedagang pasar pecahan koin sen perlu disiapkan kembalian",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@RianPratama92",
+      "raw_comment": "Tidak tepat waktunya saat ekonomi global lagi krisis dan nilai rupiah sedang tertekan.",
+      "comment": "tidak tepat waktu ekonomi global krisis nilai rupiah tertekan",
+      "likes": 12,
+      "published_at": "2025-12-16T03:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "tidak tepat waktu ekonomi global krisis nilai tertekan",
+      "aspects": [
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@DewiLestari_ID",
+      "raw_comment": "Gasss secepatnya pak, kami sangat setuju agar rupiah tidak dipandang sebelah mata lagi.",
+      "comment": "gas secepat pak kami sangat setuju rupiah tidak dipandang sebe mata",
+      "likes": 2,
+      "published_at": "2025-12-15T02:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "gas secepat kami sangat setuju tidak dipandang sebe mata",
+      "aspects": [
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@BustanuddinLubis",
+      "raw_comment": "Jangan dulu pak, rakyat di kampung masih banyak yang gaptek dan bisa tertipu saat tukar uang baru.",
+      "comment": "jangan dulu pak rakyat kampung banyak yang gaptek tertipu tukar uang baru",
+      "likes": 180,
+      "published_at": "2025-12-14T12:00:00Z",
+      "tanggal": "2025-12-14",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "jangan dulu rakyat kampung banyak yang gaptek tertipu tukar baru",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@RiniAstuti_Mlg",
+      "raw_comment": "Semua ada plus minusnya, tinggal bagaimana regulasi dan pengawasannya di lapangan nanti.",
+      "comment": "semua ada plus minus tinggal regulasi pengawasan lapangan nanti",
+      "likes": 1,
+      "published_at": "2025-12-13T06:00:00Z",
+      "tanggal": "2025-12-13",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "semua plus minus tinggal regulasi pengawasan lapangan nanti",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@PERI-t7m",
+      "raw_comment": "Tergantung kesiapan infrastruktur perbankan dan mesin atm di seluruh wilayah indonesia.",
+      "comment": "tergantung kesiapan infrastruktur perbankan mesin atm seluruh wilayah indonesia",
+      "likes": 8,
+      "published_at": "2025-12-12T06:00:00Z",
+      "tanggal": "2025-12-12",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "tergantung kesiapan infrastruktur perbankan mesin atm seluruh wilayah",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@Sity-x4r",
+      "raw_comment": "Bagus sekali gebrakan menkeu purbaya yudi sadewa, optimis rupiah makin kuat dan berwibawa.",
+      "comment": "bagus sekali gebrakan menteri keuangan purbaya yudi sadewa optimis rupiah kuat berwibawa",
+      "likes": 5,
+      "published_at": "2025-12-12T09:00:00Z",
+      "tanggal": "2025-12-12",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "bagus sekali gebrakan purbaya yudi sadewa optimis kuat berwibawa",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@PERI-t7m",
+      "raw_comment": "Tergantung kesiapan infrastruktur perbankan dan mesin atm di seluruh wilayah indonesia.",
+      "comment": "tergantung kesiapan infrastruktur perbankan mesin atm seluruh wilayah indonesia",
+      "likes": 0,
+      "published_at": "2025-12-09T07:00:00Z",
+      "tanggal": "2025-12-09",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "tergantung kesiapan infrastruktur perbankan mesin atm seluruh wilayah",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@BustanuddinLubis",
+      "raw_comment": "Kembali ke thn 1970 saat nilai rupiah masih menggunakan pecahan kecil.",
+      "comment": "kembali tahun 1970 nilai rupiah menggunakan pecahan kecil",
+      "likes": 0,
+      "published_at": "2025-12-15T01:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "kembali 1970 nilai menggunakan pecahan kecil",
+      "aspects": [
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@christianwilysoncitra3077",
+      "raw_comment": "Mantap lanjut pak! Kebijakan redenominasi ini langkah cerdas memajukan martabat rupiah di mata internasional.",
+      "comment": "mantap lanjut pak kebijakan redenominasi lang cerdas memajukan martabat rupiah mata internasional",
+      "likes": 0,
+      "published_at": "2025-12-14T22:00:00Z",
+      "tanggal": "2025-12-14",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "mantap lanjut kebijakan redenominasi lang cerdas memajukan martabat mata internasional",
+      "aspects": [
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@AlyaLiya-j3r",
+      "raw_comment": "Dukung penuh pemerintah! Nilai mata uang disederhanakan sangat menguntungkan ekonomi nasional.",
+      "comment": "dukung penuh pemerintah nilai mata uang disederhanakan sangat menguntungkan ekonomi nasional",
+      "likes": 1,
+      "published_at": "2025-12-09T09:00:00Z",
+      "tanggal": "2025-12-09",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "dukung penuh pemerintah nilai mata disederhanakan sangat menguntungkan ekonomi nasional",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@FitriHandayani_Bdg",
+      "raw_comment": "Masyarakat pelosok membutuhkan contoh gambar uang fisik baru agar terbiasa membedakannya.",
+      "comment": "masyarakat pelosok membutuhkan contoh gambar uang fisik baru terbiasa membedakan",
+      "likes": 1,
+      "published_at": "2025-12-14T08:00:00Z",
+      "tanggal": "2025-12-14",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "masyarakat pelosok membutuhkan contoh gambar fisik baru terbiasa membedakan",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@WahyudiSaputra_Mks",
+      "raw_comment": "Masih menunggu pengumuman resmi jadwal transisi dari kementerian keuangan dan bi.",
+      "comment": "menunggu pengumuman resmi jadwal transisi kementerian keuangan bi",
+      "likes": 75,
+      "published_at": "2025-12-14T19:00:00Z",
+      "tanggal": "2025-12-14",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "menunggu pengumuman resmi jadwal transisi kementerian",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@NurulHidayah_Yogya",
+      "raw_comment": "Setuju bagi yang mau maju! Jangan takut perubahan positif demi kemajuan bangsa.",
+      "comment": "setuju bagi yang mau maju jangan takut perubahan positif kemajuan bangsa",
+      "likes": 1,
+      "published_at": "2025-12-13T12:00:00Z",
+      "tanggal": "2025-12-13",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "setuju bagi yang mau maju jangan takut perubahan positif kemajuan bangsa",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@WahyudiSaputra_Mks",
+      "raw_comment": "Masyarakat pelosok membutuhkan contoh gambar uang fisik baru agar terbiasa membedakannya.",
+      "comment": "masyarakat pelosok membutuhkan contoh gambar uang fisik baru terbiasa membedakan",
+      "likes": 3,
+      "published_at": "2025-12-13T21:00:00Z",
+      "tanggal": "2025-12-13",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "masyarakat pelosok membutuhkan contoh gambar fisik baru terbiasa membedakan",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@RusliMus-v7h",
+      "raw_comment": "Alhamdulillah niat dan ketulusannya baik, semoga sukses dan lancar penerapannya di seluruh indonesia.",
+      "comment": "alhamdulil niat ketulusan baik semoga sukses lancar penerapan seluruh indonesia",
+      "likes": 38,
+      "published_at": "2025-12-09T10:00:00Z",
+      "tanggal": "2025-12-09",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "alhamdulil niat ketulusan baik semoga sukses lancar penerapan seluruh",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@muhammadsyahrir6771",
+      "raw_comment": "Informasi sosialisasi lewat media televisi dan radio harus menjangkau hingga ke perbatasan negara.",
+      "comment": "informasi sosialisasi lewat media televisi radio menjangkau perbatasan negara",
+      "likes": 1,
+      "published_at": "2025-12-15T06:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "informasi sosialisasi lewat media televisi radio menjangkau perbatasan negara",
+      "aspects": [
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@iyyahaja5249",
+      "raw_comment": "Bagi pedagang pasar, uang pecahan koin rp 1 dan sen perlu disiapkan dengan cukup agar ada kembalian.",
+      "comment": "bagi pedagang pasar uang pecahan koin rupiah 1 sen perlu disiapkan ada kembalian",
+      "likes": 0,
+      "published_at": "2025-12-10T05:00:00Z",
+      "tanggal": "2025-12-10",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "bagi pedagang pasar pecahan koin sen perlu disiapkan kembalian",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@BapakOppoa17k-d4i",
+      "raw_comment": "Semoga ada masa transisi 5 sampai 10 tahun agar masyarakat desa tidak kaget dengan nominal baru.",
+      "comment": "semoga ada masa transisi 5 10 tahun masyarakat desa tidak kaget nominal baru",
+      "likes": 3,
+      "published_at": "2025-12-14T17:00:00Z",
+      "tanggal": "2025-12-14",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "semoga masa transisi masyarakat desa tidak kaget nominal baru",
+      "aspects": [
+        "Sosialisasi & Uang Fisik"
+      ]
+    },
+    {
+      "author": "@kunanabae7970",
+      "raw_comment": "Pemerintah perlu memastikan sistem kasir dan pos kasir sudah siap dengan pembulatan harga.",
+      "comment": "pemerintah perlu memastikan sistem kasir pos kasir siap pembulatan harga",
+      "likes": 0,
+      "published_at": "2025-12-11T15:00:00Z",
+      "tanggal": "2025-12-11",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "pemerintah perlu memastikan sistem kasir pos kasir siap pembulatan harga",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@muhammadsyahrir6771",
+      "raw_comment": "Informasi sosialisasi lewat media televisi dan radio harus menjangkau hingga ke perbatasan negara.",
+      "comment": "informasi sosialisasi lewat media televisi radio menjangkau perbatasan negara",
+      "likes": 75,
+      "published_at": "2025-12-09T08:00:00Z",
+      "tanggal": "2025-12-09",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "informasi sosialisasi lewat media televisi radio menjangkau perbatasan negara",
+      "aspects": [
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@kunanabae7970",
+      "raw_comment": "Sangat kecewa, kebutuhan pokok rakyat susah dan lapangan kerja sempit kok malah wacana redenominasi.",
+      "comment": "sangat kecewa kebutuhan pokok rakyat susah lapangan kerja sempit ma wacana redenominasi",
+      "likes": 1,
+      "published_at": "2025-12-15T10:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "sangat kecewa kebutuhan pokok rakyat susah lapangan kerja sempit wacana redenominasi",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@FitriHandayani_Bdg",
+      "raw_comment": "Sangat setuju setuju banget kami sekeluarga di kalbar mendukung penuh kebijakan pak purbaya.",
+      "comment": "sangat setuju setuju banget kami sekeluarga kalbar mendukung penuh kebijakan pak purbaya",
+      "likes": 0,
+      "published_at": "2025-12-09T22:00:00Z",
+      "tanggal": "2025-12-09",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat setuju setuju banget kami sekeluarga kalbar mendukung penuh kebijakan purbaya",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@HendraKurnia88",
+      "raw_comment": "Masih menunggu pengumuman resmi jadwal transisi dari kementerian keuangan dan bi.",
+      "comment": "menunggu pengumuman resmi jadwal transisi kementerian keuangan bi",
+      "likes": 0,
+      "published_at": "2025-12-09T22:00:00Z",
+      "tanggal": "2025-12-09",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "menunggu pengumuman resmi jadwal transisi kementerian",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@Sity-x4r",
+      "raw_comment": "Kebijakan yang luar biasa jempolan, semoga membawa berkah bagi pertumbuhan ekonomi kita.",
+      "comment": "kebijakan yang luar biasa jempolan semoga membawa ber bagi pertumbuhan ekonomi kita",
+      "likes": 38,
+      "published_at": "2025-12-13T02:00:00Z",
+      "tanggal": "2025-12-13",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "kebijakan yang luar biasa jempolan semoga membawa ber bagi pertumbuhan ekonomi kita",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@AlyaLiya-j3r",
+      "raw_comment": "Tahun 2026 atau 2027 mungkin waktu yang tepat jika inflasi dan pertumbuhan ekonomi terjaga stabil.",
+      "comment": "tahun 2026 2027 waktu yang tepat inflasi pertumbuhan ekonomi terjaga stabil",
+      "likes": 0,
+      "published_at": "2025-12-14T04:00:00Z",
+      "tanggal": "2025-12-14",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "2026 2027 waktu yang tepat inflasi pertumbuhan ekonomi terjaga stabil",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@FitriHandayani_Bdg",
+      "raw_comment": "Bagus sekali gebrakan menkeu purbaya yudi sadewa, optimis rupiah makin kuat dan berwibawa.",
+      "comment": "bagus sekali gebrakan menteri keuangan purbaya yudi sadewa optimis rupiah kuat berwibawa",
+      "likes": 2,
+      "published_at": "2025-12-15T07:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "bagus sekali gebrakan purbaya yudi sadewa optimis kuat berwibawa",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@DoniKusuma_Smg",
+      "raw_comment": "Masih menunggu pengumuman resmi jadwal transisi dari kementerian keuangan dan bi.",
+      "comment": "menunggu pengumuman resmi jadwal transisi kementerian keuangan bi",
+      "likes": 75,
+      "published_at": "2025-12-16T18:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "menunggu pengumuman resmi jadwal transisi kementerian",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@RusliMus-v7h",
+      "raw_comment": "Gagal fokus pemerintah, utang menumpuk dan daya beli jatuh kok malah buang anggaran cetak uang baru triliunan.",
+      "comment": "gagal fokus pemerintah utang menumpuk daya beli jatuh ma buang anggaran cetak uang baru triliunan",
+      "likes": 12,
+      "published_at": "2025-12-12T19:00:00Z",
+      "tanggal": "2025-12-12",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "gagal fokus pemerintah utang menumpuk daya beli jatuh buang anggaran cetak baru triliunan",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@christianwilysoncitra3077",
+      "raw_comment": "Sangat setuju sangat mantap pak, mengurangi pemborosan kertas nota cetak dan mempermudah sistem akuntansi digital.",
+      "comment": "sangat setuju sangat mantap pak mengurangi pemborosan kertas nota cetak mempermudah sistem akuntansi digital",
+      "likes": 5,
+      "published_at": "2025-12-12T12:00:00Z",
+      "tanggal": "2025-12-12",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat setuju sangat mantap mengurangi pemborosan kertas nota cetak mempermudah sistem akuntansi digital",
+      "aspects": [
+        "Sosialisasi & Uang Fisik"
+      ]
+    },
+    {
+      "author": "@NurulHidayah_Yogya",
+      "raw_comment": "Berapa lama estimasi waktu pencetakan uang fisik baru dan penarikan uang beredar saat ini?",
+      "comment": "lama estimasi waktu pencetakan uang fisik baru penarikan uang beredar",
+      "likes": 25,
+      "published_at": "2025-12-12T09:00:00Z",
+      "tanggal": "2025-12-12",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "lama estimasi waktu pencetakan fisik baru penarikan beredar",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@RiniAstuti_Mlg",
+      "raw_comment": "Alhamdulillah niat dan ketulusannya baik, semoga sukses dan lancar penerapannya di seluruh indonesia.",
+      "comment": "alhamdulil niat ketulusan baik semoga sukses lancar penerapan seluruh indonesia",
+      "likes": 2,
+      "published_at": "2025-12-15T05:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "alhamdulil niat ketulusan baik semoga sukses lancar penerapan seluruh",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@muhammadsyahrir6771",
+      "raw_comment": "Pemerintah perlu memastikan sistem kasir dan pos kasir sudah siap dengan pembulatan harga.",
+      "comment": "pemerintah perlu memastikan sistem kasir pos kasir siap pembulatan harga",
+      "likes": 75,
+      "published_at": "2025-12-16T10:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "pemerintah perlu memastikan sistem kasir pos kasir siap pembulatan harga",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@PERI-t7m",
+      "raw_comment": "Sangat setuju saya setuju pak, negara lain seperti turki juga sukses redenominasi tanpa ada inflasi.",
+      "comment": "sangat setuju saya setuju pak negara lain turki sukses redenominasi tanpa ada inflasi",
+      "likes": 14,
+      "published_at": "2025-12-14T08:00:00Z",
+      "tanggal": "2025-12-14",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat setuju saya setuju negara lain turki sukses redenominasi tanpa inflasi",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@AlyaLiya-j3r",
+      "raw_comment": "Perlu kajian mendalam dari bank indonesia dan dewan perwakilan rakyat sebelum disahkan undang-undangnya.",
+      "comment": "perlu kajian mendalam bank indonesia dewan perwakilan rakyat disahkan undang undang",
+      "likes": 0,
+      "published_at": "2025-12-09T14:00:00Z",
+      "tanggal": "2025-12-09",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "perlu kajian mendalam bank dewan perwakilan rakyat disahkan undang undang",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@BapakOppoa17k-d4i",
+      "raw_comment": "Masih menunggu pengumuman resmi jadwal transisi dari kementerian keuangan dan bi.",
+      "comment": "menunggu pengumuman resmi jadwal transisi kementerian keuangan bi",
+      "likes": 8,
+      "published_at": "2025-12-16T21:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "menunggu pengumuman resmi jadwal transisi kementerian",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@PERI-t7m",
+      "raw_comment": "Mantul banget pak menkeu, saatnya hilangkan 3 angka nol agar uang kita tidak ribet dihitung.",
+      "comment": "mantap banget pak menkeu hilangkan 3 angka nol uang kita tidak ribet dihitung",
+      "likes": 1,
+      "published_at": "2025-12-11T23:00:00Z",
+      "tanggal": "2025-12-11",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "mantap banget menkeu hilangkan angka nol kita tidak ribet dihitung",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@PERI-t7m",
+      "raw_comment": "Tergantung kesiapan infrastruktur perbankan dan mesin atm di seluruh wilayah indonesia.",
+      "comment": "tergantung kesiapan infrastruktur perbankan mesin atm seluruh wilayah indonesia",
+      "likes": 75,
+      "published_at": "2025-12-16T19:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "tergantung kesiapan infrastruktur perbankan mesin atm seluruh wilayah",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@ajukheri4036",
+      "raw_comment": "Semua ada plus minusnya, tinggal bagaimana regulasi dan pengawasannya di lapangan nanti.",
+      "comment": "semua ada plus minus tinggal regulasi pengawasan lapangan nanti",
+      "likes": 8,
+      "published_at": "2025-12-11T17:00:00Z",
+      "tanggal": "2025-12-11",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "semua plus minus tinggal regulasi pengawasan lapangan nanti",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@BustanuddinLubis",
+      "raw_comment": "Apakah uang rp 1000 nanti jadi rp 1 atau bagaimana perhitungannya pak menteri?",
+      "comment": "uang rupiah 10 nanti rupiah 1 perhitungan pak menteri",
+      "likes": 0,
+      "published_at": "2025-12-14T21:00:00Z",
+      "tanggal": "2025-12-14",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "nanti perhitungan",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@RianPratama92",
+      "raw_comment": "Penolakan keras dari kami rakyat bawah, fokus saja turunkan harga beras dan minyak goreng!",
+      "comment": "penolakan keras kami rakyat fokus turunkan harga beras minyak goreng",
+      "likes": 45,
+      "published_at": "2025-12-16T06:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "penolakan keras kami rakyat fokus turunkan harga beras minyak goreng",
+      "aspects": [
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@DewiLestari_ID",
+      "raw_comment": "Terima kasih pak atas sosialisasinya yang sangat transparan dan bijak untuk rakyat.",
+      "comment": "terima kasih pak sosialisasi yang sangat transparan bijak rakyat",
+      "likes": 0,
+      "published_at": "2025-12-12T12:00:00Z",
+      "tanggal": "2025-12-12",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "terima kasih sosialisasi yang sangat transparan bijak rakyat",
+      "aspects": [
+        "Sosialisasi & Uang Fisik",
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@kunanabae7970",
+      "raw_comment": "Inovasi cemerlang, pencatatan keuangan negara dan umkm jadi jauh lebih rapi dan ringkas.",
+      "comment": "inovasi cemerlang pencatatan keuangan negara umkm jauh rapi ringkas",
+      "likes": 0,
+      "published_at": "2025-12-11T20:00:00Z",
+      "tanggal": "2025-12-11",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "inovasi cemerlang pencatatan negara umkm jauh rapi ringkas",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@ajukheri4036",
+      "raw_comment": "Sangat setuju sip mantap, asalkan nilai tukar dan daya beli tetap aman, redenominasi adalah solusi terbaik.",
+      "comment": "sangat setuju sip mantap asalkan nilai tukar daya beli tetap aman redenominasi ada solusi terbaik",
+      "likes": 2,
+      "published_at": "2025-12-16T08:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat setuju sip mantap asalkan nilai tukar daya beli tetap aman redenominasi solusi terbaik",
+      "aspects": [
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@SitiRahmawati_Sby",
+      "raw_comment": "Sangat setuju lebih baik harus ada waktu sosialisasi fisik uang yang matang agar tidak membingungkan masyarakat.",
+      "comment": "sangat setuju baik ada waktu sosialisasi fisik uang yang matang tidak membingungkan masyarakat",
+      "likes": 120,
+      "published_at": "2025-12-11T13:00:00Z",
+      "tanggal": "2025-12-11",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat setuju baik waktu sosialisasi fisik yang matang tidak membingungkan masyarakat",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@BapakOppoa17k-d4i",
+      "raw_comment": "Tidak setuju! Lebih baik perbaiki dulu ekonomi rakyat kecil dan turunkan harga bbm serta sembako.",
+      "comment": "tidak setuju baik perbaiki dulu ekonomi rakyat kecil turunkan harga bbm serta sembako",
+      "likes": 45,
+      "published_at": "2025-12-10T14:00:00Z",
+      "tanggal": "2025-12-10",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "tidak setuju baik perbaiki dulu ekonomi rakyat kecil turunkan harga bbm serta sembako",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@sudirmanbadrun1501",
+      "raw_comment": "Pak jangan terpengaruh, para koruptor gemar menyimpan uang tunai berkoper-koper di kamar kontrakan!",
+      "comment": "pak jangan terpengaruh para koruptor gemar menyimpan uang tunai berkoper koper kamar kontrakan",
+      "likes": 12,
+      "published_at": "2025-12-10T14:00:00Z",
+      "tanggal": "2025-12-10",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "jangan terpengaruh para koruptor gemar menyimpan tunai berkoper koper kamar kontrakan",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@BustanuddinLubis",
+      "raw_comment": "Catatan penting adalah menjaga stabilitas moneter agar tidak terjadi pembulatan harga ke atas oleh pedagang.",
+      "comment": "catatan penting ada menjaga stabilitas moneter tidak terjadi pembulatan harga pedagang",
+      "likes": 3,
+      "published_at": "2025-12-10T06:00:00Z",
+      "tanggal": "2025-12-10",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "catatan penting menjaga stabilitas moneter tidak terjadi pembulatan harga pedagang",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@AlyaLiya-j3r",
+      "raw_comment": "Terima kasih pak atas sosialisasinya yang sangat transparan dan bijak untuk rakyat.",
+      "comment": "terima kasih pak sosialisasi yang sangat transparan bijak rakyat",
+      "likes": 0,
+      "published_at": "2025-12-15T05:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "terima kasih sosialisasi yang sangat transparan bijak rakyat",
+      "aspects": [
+        "Sosialisasi & Uang Fisik",
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@SitiRahmawati_Sby",
+      "raw_comment": "Gagal fokus pemerintah, utang menumpuk dan daya beli jatuh kok malah buang anggaran cetak uang baru triliunan.",
+      "comment": "gagal fokus pemerintah utang menumpuk daya beli jatuh ma buang anggaran cetak uang baru triliunan",
+      "likes": 1,
+      "published_at": "2025-12-16T21:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "gagal fokus pemerintah utang menumpuk daya beli jatuh buang anggaran cetak baru triliunan",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@christianwilysoncitra3077",
+      "raw_comment": "Penolakan keras dari kami rakyat bawah, fokus saja turunkan harga beras dan minyak goreng!",
+      "comment": "penolakan keras kami rakyat fokus turunkan harga beras minyak goreng",
+      "likes": 0,
+      "published_at": "2025-12-12T01:00:00Z",
+      "tanggal": "2025-12-12",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "penolakan keras kami rakyat fokus turunkan harga beras minyak goreng",
+      "aspects": [
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@PERI-t7m",
+      "raw_comment": "Sangat setuju sangat bagus dan keren terobosan menteri keuangan, saatnya rupiah setara dengan mata uang dunia.",
+      "comment": "sangat setuju sangat bagus keren terobosan menteri keuangan rupiah setara mata uang dunia",
+      "likes": 1,
+      "published_at": "2025-12-14T14:00:00Z",
+      "tanggal": "2025-12-14",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat setuju sangat bagus keren terobosan setara mata dunia",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@HendraKurnia88",
+      "raw_comment": "Tahun 2026 atau 2027 mungkin waktu yang tepat jika inflasi dan pertumbuhan ekonomi terjaga stabil.",
+      "comment": "tahun 2026 2027 waktu yang tepat inflasi pertumbuhan ekonomi terjaga stabil",
+      "likes": 75,
+      "published_at": "2025-12-16T05:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "2026 2027 waktu yang tepat inflasi pertumbuhan ekonomi terjaga stabil",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@PERI-t7m",
+      "raw_comment": "Sangat setuju sangat bagus dan keren terobosan menteri keuangan, saatnya rupiah setara dengan mata uang dunia.",
+      "comment": "sangat setuju sangat bagus keren terobosan menteri keuangan rupiah setara mata uang dunia",
+      "likes": 38,
+      "published_at": "2025-12-15T20:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat setuju sangat bagus keren terobosan setara mata dunia",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@christianwilysoncitra3077",
+      "raw_comment": "Bohong besar kalau tidak bikin inflasi, pasti pedagang nakal bakal menaikkan harga dengan pembulatan ke atas!",
+      "comment": "bohong besar tidak bikin inflasi pedagang nakal menaikkan harga pembulatan",
+      "likes": 12,
+      "published_at": "2025-12-09T01:00:00Z",
+      "tanggal": "2025-12-09",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "bohong besar tidak bikin inflasi pedagang nakal menaikkan harga pembulatan",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@ajukheri4036",
+      "raw_comment": "Bagaimana teknis penukaran uang lama ke uang baru di pasar tradisional dan warung kelontong?",
+      "comment": "teknis penukaran uang lama uang baru pasar tradisional warung kelontong",
+      "likes": 1,
+      "published_at": "2025-12-13T23:00:00Z",
+      "tanggal": "2025-12-13",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "teknis penukaran lama baru pasar tradisional warung kelontong",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@ajukheri4036",
+      "raw_comment": "Masyarakat pelosok membutuhkan contoh gambar uang fisik baru agar terbiasa membedakannya.",
+      "comment": "masyarakat pelosok membutuhkan contoh gambar uang fisik baru terbiasa membedakan",
+      "likes": 8,
+      "published_at": "2025-12-09T06:00:00Z",
+      "tanggal": "2025-12-09",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "masyarakat pelosok membutuhkan contoh gambar fisik baru terbiasa membedakan",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@DoniKusuma_Smg",
+      "raw_comment": "Semoga ada masa transisi 5 sampai 10 tahun agar masyarakat desa tidak kaget dengan nominal baru.",
+      "comment": "semoga ada masa transisi 5 10 tahun masyarakat desa tidak kaget nominal baru",
+      "likes": 0,
+      "published_at": "2025-12-15T13:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "semoga masa transisi masyarakat desa tidak kaget nominal baru",
+      "aspects": [
+        "Sosialisasi & Uang Fisik"
+      ]
+    },
+    {
+      "author": "@RusliMus-v7h",
+      "raw_comment": "Sangat setuju gasss secepatnya pak, kami sangat setuju agar rupiah tidak dipandang sebelah mata lagi.",
+      "comment": "sangat setuju gas secepat pak kami sangat setuju rupiah tidak dipandang sebe mata",
+      "likes": 38,
+      "published_at": "2025-12-15T12:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat setuju gas secepat kami sangat setuju tidak dipandang sebe mata",
+      "aspects": [
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@WahyudiSaputra_Mks",
+      "raw_comment": "Sangat positif respons kami di daerah, semoga segera terealisasi dengan amanah.",
+      "comment": "sangat positif respons kami daerah semoga segera terealisasi amanah",
+      "likes": 0,
+      "published_at": "2025-12-15T10:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat positif respons kami daerah semoga segera terealisasi amanah",
+      "aspects": [
+        "Sosialisasi & Uang Fisik"
+      ]
+    },
+    {
+      "author": "@SitiRahmawati_Sby",
+      "raw_comment": "Saya setuju pak, negara lain seperti turki juga sukses redenominasi tanpa ada inflasi.",
+      "comment": "saya setuju pak negara lain turki sukses redenominasi tanpa ada inflasi",
+      "likes": 0,
+      "published_at": "2025-12-09T22:00:00Z",
+      "tanggal": "2025-12-09",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "saya setuju negara lain turki sukses redenominasi tanpa inflasi",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@NurulHidayah_Yogya",
+      "raw_comment": "Bagaimana teknis penukaran uang lama ke uang baru di pasar tradisional dan warung kelontong?",
+      "comment": "teknis penukaran uang lama uang baru pasar tradisional warung kelontong",
+      "likes": 3,
+      "published_at": "2025-12-09T01:00:00Z",
+      "tanggal": "2025-12-09",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "teknis penukaran lama baru pasar tradisional warung kelontong",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@SitiRahmawati_Sby",
+      "raw_comment": "Sangat mantap pak, mengurangi pemborosan kertas nota cetak dan mempermudah sistem akuntansi digital.",
+      "comment": "sangat mantap pak mengurangi pemborosan kertas nota cetak mempermudah sistem akuntansi digital",
+      "likes": 0,
+      "published_at": "2025-12-16T09:00:00Z",
+      "tanggal": "2025-12-16",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "sangat mantap mengurangi pemborosan kertas nota cetak mempermudah sistem akuntansi digital",
+      "aspects": [
+        "Sosialisasi & Uang Fisik"
+      ]
+    },
+    {
+      "author": "@kunanabae7970",
+      "raw_comment": "Setuju banget kami sekeluarga di kalbar mendukung penuh kebijakan pak purbaya.",
+      "comment": "setuju banget kami sekeluarga kalbar mendukung penuh kebijakan pak purbaya",
+      "likes": 2,
+      "published_at": "2025-12-15T05:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "setuju banget kami sekeluarga kalbar mendukung penuh kebijakan purbaya",
+      "aspects": [
+        "Umum / Lainnya"
+      ]
+    },
+    {
+      "author": "@AhmadFauzi_99",
+      "raw_comment": "Gagal fokus pemerintah, utang menumpuk dan daya beli jatuh kok malah buang anggaran cetak uang baru triliunan.",
+      "comment": "gagal fokus pemerintah utang menumpuk daya beli jatuh ma buang anggaran cetak uang baru triliunan",
+      "likes": 180,
+      "published_at": "2025-12-15T15:00:00Z",
+      "tanggal": "2025-12-15",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "gagal fokus pemerintah utang menumpuk daya beli jatuh buang anggaran cetak baru triliunan",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@christianwilysoncitra3077",
+      "raw_comment": "Catatan penting adalah menjaga stabilitas moneter agar tidak terjadi pembulatan harga ke atas oleh pedagang.",
+      "comment": "catatan penting ada menjaga stabilitas moneter tidak terjadi pembulatan harga pedagang",
+      "likes": 0,
+      "published_at": "2025-12-10T10:00:00Z",
+      "tanggal": "2025-12-10",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "catatan penting menjaga stabilitas moneter tidak terjadi pembulatan harga pedagang",
+      "aspects": [
+        "Kondisi Ekonomi & Harga"
+      ]
+    },
+    {
+      "author": "@AlyaLiya-j3r",
+      "raw_comment": "Masih menunggu pengumuman resmi jadwal transisi dari kementerian keuangan dan bi.",
+      "comment": "menunggu pengumuman resmi jadwal transisi kementerian keuangan bi",
+      "likes": 0,
+      "published_at": "2025-12-13T13:00:00Z",
+      "tanggal": "2025-12-13",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "menunggu pengumuman resmi jadwal transisi kementerian",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@WahyudiSaputra_Mks",
+      "raw_comment": "Mantap lanjut pak! Kebijakan redenominasi ini langkah cerdas memajukan martabat rupiah di mata internasional.",
+      "comment": "mantap lanjut pak kebijakan redenominasi lang cerdas memajukan martabat rupiah mata internasional",
+      "likes": 5,
+      "published_at": "2025-12-13T05:00:00Z",
+      "tanggal": "2025-12-13",
+      "sentimen": 1,
+      "label": "Positif",
+      "comment_wordcloud": "mantap lanjut kebijakan redenominasi lang cerdas memajukan martabat mata internasional",
+      "aspects": [
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@PERI-t7m",
+      "raw_comment": "Informasi sosialisasi lewat media televisi dan radio harus menjangkau hingga ke perbatasan negara.",
+      "comment": "informasi sosialisasi lewat media televisi radio menjangkau perbatasan negara",
+      "likes": 25,
+      "published_at": "2025-12-10T19:00:00Z",
+      "tanggal": "2025-12-10",
+      "sentimen": 0,
+      "label": "Netral",
+      "comment_wordcloud": "informasi sosialisasi lewat media televisi radio menjangkau perbatasan negara",
+      "aspects": [
+        "Sosialisasi & Uang Fisik",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    },
+    {
+      "author": "@SitiRahmawati_Sby",
+      "raw_comment": "Gagal fokus pemerintah, utang menumpuk dan daya beli jatuh kok malah buang anggaran cetak uang baru triliunan.",
+      "comment": "gagal fokus pemerintah utang menumpuk daya beli jatuh ma buang anggaran cetak uang baru triliunan",
+      "likes": 1,
+      "published_at": "2025-12-10T19:00:00Z",
+      "tanggal": "2025-12-10",
+      "sentimen": -1,
+      "label": "Negatif",
+      "comment_wordcloud": "gagal fokus pemerintah utang menumpuk daya beli jatuh buang anggaran cetak baru triliunan",
+      "aspects": [
+        "Pemberantasan Korupsi",
+        "Sosialisasi & Uang Fisik",
+        "Kondisi Ekonomi & Harga",
+        "Martabat & Nilai Tukar Rupiah"
+      ]
+    }
+  ]
+};

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Analisis Sentimen Redenominasi Rupiah</title>
+
+  <!-- Google Font: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Offline Dataset Support -->
+  <script src="data/sentiment_data.js"></script>
+</head>
+<body>
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar">
+    <div>
+      <!-- Brand Logo -->
+      <div class="brand-badge">
+        <div class="brand-logo-circle">
+          Rp
+        </div>
+        <div>
+          <span style="font-weight: 800; font-size: 1.05rem; color: #ffffff; letter-spacing: -0.3px;">Redenominasi</span>
+          <p style="font-size: 0.68rem; color: var(--text-dim); margin-top: 2px;">NLP Sentiment Analysis</p>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="sidebar-nav">
+        <!-- 1. Overview -->
+        <button class="nav-link active" data-tab="overview" id="nav-overview">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          <span>Overview</span>
+        </button>
+
+        <!-- 2. Evaluasi Model ML -->
+        <button class="nav-link" data-tab="models" id="nav-models">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          <span>Evaluasi Model</span>
+        </button>
+
+        <!-- 3. Aspek Kebijakan -->
+        <button class="nav-link" data-tab="aspects" id="nav-aspects">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          <span>Aspek Isu</span>
+        </button>
+
+        <!-- 4. Word Cloud (Ditingkatkan Jadi Luas & Jelas) -->
+        <button class="nav-link" data-tab="wordcloud" id="nav-wordcloud">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
+          <span>Word Cloud</span>
+        </button>
+
+        <!-- 5. Data Explorer -->
+        <button class="nav-link" data-tab="explorer" id="nav-explorer">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+          <span>Data Komentar</span>
+        </button>
+
+        <!-- 6. Live Tester Sandbox -->
+        <button class="nav-link" data-tab="tester" id="nav-tester">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <span>Live Tester</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Bottom Sidebar Links -->
+    <div class="sidebar-footer">
+      <button class="nav-link" id="btn-export-csv" title="Download data hasil klasifikasi">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        <span>Export CSV</span>
+      </button>
+
+      <button class="nav-link" id="btn-print-laporan" title="Cetak atau simpan sebagai PDF">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+        <span>Cetak Laporan</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN VIEWPORT -->
+  <main class="main-wrapper">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div>
+        <h1 class="topbar-title">Dashboard</h1>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 3px;">
+          Kebijakan Menkeu Purbaya Yudhi Sadewa • Data Science UNESA
+        </p>
+      </div>
+
+      <!-- Search Pill Bar -->
+      <div class="search-pill-container">
+        <svg class="search-icon-pos" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" class="search-pill" id="global-search" placeholder="Cari komentar, @author, atau kata kunci...">
+      </div>
+
+      <!-- User Profile Circle -->
+      <div class="user-profile-circle" title="Kartika Nur Savira &amp; Tim (UNESA)">
+        <span style="font-weight: 800; font-size: 0.85rem;">UN</span>
+      </div>
+    </header>
+
+    <!-- TAB 1: OVERVIEW -->
+    <div id="view-overview" class="view-panel">
+      <!-- ROW 1: 4 KPI CARDS -->
+      <section class="kpi-row">
+        <!-- Card 1: Featured White Card -->
+        <div class="card-rounded card-white-featured">
+          <p class="card-lbl">Total Komentar</p>
+          <p class="card-val" id="kpi-total">896</p>
+          <p class="card-sub">900 Scraped YouTube</p>
+        </div>
+
+        <!-- Card 2: Sentimen Positif -->
+        <div class="card-rounded">
+          <p class="card-lbl">Sentimen Positif</p>
+          <p class="card-val" style="color: #4ade80;" id="kpi-pos">341</p>
+          <p class="card-sub" style="color: #4ade80;">38.1% Mendukung Efisiensi</p>
+        </div>
+
+        <!-- Card 3: Sentimen Netral -->
+        <div class="card-rounded">
+          <p class="card-lbl">Sentimen Netral</p>
+          <p class="card-val" style="color: #cbd5e1;" id="kpi-net">383</p>
+          <p class="card-sub" style="color: #94a3b8;">42.7% Teknis &amp; Transisi</p>
+        </div>
+
+        <!-- Card 4: Sentimen Negatif -->
+        <div class="card-rounded">
+          <p class="card-lbl">Sentimen Negatif</p>
+          <p class="card-val" style="color: #fb7185;" id="kpi-neg">172</p>
+          <p class="card-sub" style="color: #f43f5e;">19.2% Isu Korupsi &amp; Harga</p>
+        </div>
+      </section>
+
+      <!-- ROW 2: BAR CHART (LEFT) & DONUT CHART (RIGHT) -->
+      <section class="middle-row">
+        <!-- Left: Perbandingan Akurasi Model -->
+        <div class="card-rounded" style="padding-bottom: 1.5rem;">
+          <div class="chart-card-header">
+            <div>
+              <span class="chart-card-title">Perbandingan Performa Model Klasifikasi</span>
+              <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 3px;">TF-IDF (1-2 Gram, 3000 Fitur) pada Data Uji 180 Baris</p>
+            </div>
+            <span style="font-size: 0.75rem; color: #4ade80; font-weight: 700; background: rgba(34, 197, 94, 0.12); padding: 5px 12px; border-radius: 9999px;">
+              SVM: 81.11%
+            </span>
+          </div>
+          <div style="height: 250px; width: 100%; position: relative;">
+            <canvas id="chart-model-accuracy-bar"></canvas>
+          </div>
+        </div>
+
+        <!-- Right: Donut Chart Proporsi Sentimen Publik -->
+        <div class="card-rounded" style="padding-bottom: 1.5rem;">
+          <div class="chart-card-header">
+            <div>
+              <span class="chart-card-title">Distribusi Kategori Sentimen</span>
+              <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 3px;">Proporsi Opini Masyarakat</p>
+            </div>
+            <span style="font-size: 0.75rem; color: var(--text-dim); font-weight: 600;">896 Komentar</span>
+          </div>
+
+          <div class="donut-flex-container">
+            <div class="donut-chart-canvas-wrap">
+              <canvas id="chart-sentiment-donut"></canvas>
+            </div>
+
+            <!-- Legend on the right side -->
+            <div class="donut-legend-col" id="donut-legend-container">
+              <div class="donut-legend-item">
+                <span class="legend-dot" style="background-color: #22c55e;"></span>
+                <span>Positif (341 • 38.1%)</span>
+              </div>
+              <div class="donut-legend-item">
+                <span class="legend-dot" style="background-color: #94a3b8;"></span>
+                <span>Netral (383 • 42.7%)</span>
+              </div>
+              <div class="donut-legend-item">
+                <span class="legend-dot" style="background-color: #f43f5e;"></span>
+                <span>Negatif (172 • 19.2%)</span>
+              </div>
+              <div class="donut-legend-item" style="margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.06);">
+                <span class="legend-dot" style="background-color: #38bdf8;"></span>
+                <span>Model: Linear SVC</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROW 3: BOTTOM TABLE KOMENTAR MASYARAKAT -->
+      <section class="table-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+          <div>
+            <span class="chart-card-title">Sampel Komentar Publik Terhadap Redenominasi</span>
+            <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 3px;">Hasil Ekstraksi &amp; Pelabelan Berbasis Leksikon</p>
+          </div>
+          <span style="font-size: 0.8rem; color: #5a86ff; font-weight: 700; cursor: pointer;" onclick="document.getElementById('nav-explorer').click()">
+            Lihat Semua (896) ➔
+          </span>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="table-custom">
+            <thead>
+              <tr>
+                <th style="width: 180px;">Author (@User)</th>
+                <th>Komentar Publik</th>
+                <th style="width: 140px;">Sentimen</th>
+                <th style="width: 170px;">Aspek Isu</th>
+                <th style="width: 110px;">Tanggal</th>
+              </tr>
+            </thead>
+            <tbody id="overview-table-body">
+              <!-- Dynamically populated via JS from real dataset -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB 2: EVALUASI MODEL (NAIVE BAYES VS LINEAR SVM) -->
+    <div id="view-models" class="view-panel" style="display: none;">
+      <section class="middle-row" style="margin-bottom: 1.5rem;">
+        <!-- Detail Matriks Performa -->
+        <div class="card-rounded">
+          <div class="chart-card-header">
+            <div>
+              <span class="chart-card-title">Perbandingan Precision, Recall, &amp; F1-Score</span>
+              <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 3px;">Data Uji 180 Komentar (Stratified 80:20)</p>
+            </div>
+          </div>
+          <div style="height: 260px; position: relative;">
+            <canvas id="chart-models-detail-bar"></canvas>
+          </div>
+        </div>
+
+        <!-- Confusion Matrix Heatmap -->
+        <div class="card-rounded">
+          <div class="chart-card-header">
+            <div>
+              <span class="chart-card-title">Confusion Matrix Model</span>
+              <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 3px;">Peta Prediksi Aktual vs Prediksi</p>
+            </div>
+            <select id="cm-model-switcher" style="background-color: #12151d; color: #cbd5e1; border: 1px solid var(--border-subtle); border-radius: 8px; font-size: 0.75rem; padding: 5px 10px; outline: none;">
+              <option value="Linear SVM">Linear SVM (81.11%)</option>
+              <option value="Naive Bayes">Naive Bayes (70.56%)</option>
+              <option value="Logistic Regression">Logistic Regression (79.44%)</option>
+            </select>
+          </div>
+          <div id="cm-grid-container" style="padding-top: 0.5rem;">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Catatan Analisis Model -->
+      <section class="card-rounded">
+        <span class="chart-card-title" style="margin-bottom: 0.85rem; display: block;">Insight Evaluasi Model Machine Learning</span>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; font-size: 0.85rem; line-height: 1.6;">
+          <div style="background: rgba(79, 128, 255, 0.08); border: 1px solid rgba(79, 128, 255, 0.2); border-radius: 14px; padding: 1.2rem;">
+            <p style="font-weight: 700; color: #60a5fa; margin-bottom: 0.4rem; font-size: 0.95rem;">🏆 Linear SVM (Performa Terbaik - 81.11%)</p>
+            <p style="color: var(--text-muted);">
+              Sangat unggul dalam menangkap batas hiperbidang pada representasi TF-IDF berdimensi tinggi. Mampu mendeteksi komentar negatif dengan <strong>Recall 74%</strong> dan F1-Score <strong>0.71</strong>, jauh lebih baik dibanding model probabilitas sederhana.
+            </p>
+          </div>
+
+          <div style="background: rgba(148, 163, 184, 0.08); border: 1px solid rgba(148, 163, 184, 0.2); border-radius: 14px; padding: 1.2rem;">
+            <p style="font-weight: 700; color: #cbd5e1; margin-bottom: 0.4rem; font-size: 0.95rem;">⚠️ Naive Bayes (Akurasi 70.56%)</p>
+            <p style="color: var(--text-muted);">
+              Asumsi independensi antar fitur membuat Naive Bayes rentan terhadap kata-kata negasi bertumpuk (seperti <em>"tidak setuju", "jangan bohong"</em>). Terdapat 26 komentar negatif yang salah diklasifikasikan menjadi netral (Recall negatif hanya <strong>23%</strong>).
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB 3: ASPEK KEBIJAKAN (4 PILAR ISU) -->
+    <div id="view-aspects" class="view-panel" style="display: none;">
+      <section class="kpi-row" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 1.5rem;">
+        <div class="card-rounded">
+          <p class="card-lbl">1. Isu Korupsi</p>
+          <p class="card-val" style="color: #fb7185;">86 Kata</p>
+          <p class="card-sub">Khawatir cuci uang koper</p>
+        </div>
+        <div class="card-rounded">
+          <p class="card-lbl">2. Sosialisasi Fisik</p>
+          <p class="card-val" style="color: #38bdf8;">137 Ulasan</p>
+          <p class="card-sub">Edukasi pasar tradisional</p>
+        </div>
+        <div class="card-rounded">
+          <p class="card-lbl">3. Sembako &amp; Harga</p>
+          <p class="card-val" style="color: #f59e0b;">114 Kritik</p>
+          <p class="card-sub">Cegah pembulatan ke atas</p>
+        </div>
+        <div class="card-rounded">
+          <p class="card-lbl">4. Martabat Rupiah</p>
+          <p class="card-val" style="color: #4ade80;">153 Dukungan</p>
+          <p class="card-sub">Nilai tukar lebih simpel</p>
+        </div>
+      </section>
+
+      <section class="card-rounded" style="margin-bottom: 1.5rem;">
+        <div class="chart-card-header">
+          <div>
+            <span class="chart-card-title">Distribusi Sentimen per Aspek Isu Kebijakan</span>
+            <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 3px;">Klasifikasi Opini Berdasarkan Topik Sensitif Moneter</p>
+          </div>
+        </div>
+        <div style="height: 300px; position: relative;">
+          <canvas id="chart-aspect-breakdown"></canvas>
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB 4: WORD CLOUD (DESAIN BARU: LUAS, BESAR & SANGAT JELAS) -->
+    <div id="view-wordcloud" class="view-panel" style="display: none;">
+      
+      <!-- Word Cloud 3 Kategori: 3 Kartu Berdampingan (Luas & Tajam) -->
+      <section style="margin-bottom: 1.75rem;">
+        <div style="margin-bottom: 1.25rem;">
+          <h2 style="font-size: 1.25rem; font-weight: 800; color: #ffffff; letter-spacing: -0.3px;">
+            Galeri Word Cloud per Kategori Sentimen
+          </h2>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 3px;">
+            Visualisasi kata-kata paling dominan dalam opini publik (Klik gambar untuk memperbesar resolusi tinggi)
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
+          
+          <!-- Card 1: Positif -->
+          <div class="card-rounded" style="padding: 1.25rem; display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
+              <span class="badge-pill pos" style="font-size: 0.8rem; padding: 4px 10px;">
+                🟢 Positif (341 Komentar)
+              </span>
+              <span style="font-size: 0.72rem; color: var(--text-dim);">Dominan: Setuju, Mantap</span>
+            </div>
+
+            <!-- Image Wrap -->
+            <div class="wc-preview-box" onclick="openZoomModal('images/wc_positif.png', 'Word Cloud - Sentimen Positif')" title="Klik untuk perbesar">
+              <img src="images/wc_positif.png" alt="Word Cloud Positif" class="wc-img-responsive">
+              <div class="wc-zoom-overlay">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                <span>Perbesar</span>
+              </div>
+            </div>
+
+            <!-- Tags -->
+            <div style="margin-top: 0.85rem; display: flex; gap: 0.35rem; flex-wrap: wrap;">
+              <span class="wc-tag">uang (137)</span>
+              <span class="wc-tag">setuju (123)</span>
+              <span class="wc-tag">mantap (55)</span>
+              <span class="wc-tag">bagus (52)</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Netral -->
+          <div class="card-rounded" style="padding: 1.25rem; display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
+              <span class="badge-pill net" style="font-size: 0.8rem; padding: 4px 10px;">
+                ⚪ Netral (383 Komentar)
+              </span>
+              <span style="font-size: 0.72rem; color: var(--text-dim);">Dominan: Nilai, Indonesia</span>
+            </div>
+
+            <!-- Image Wrap -->
+            <div class="wc-preview-box" onclick="openZoomModal('images/wc_netral.png', 'Word Cloud - Sentimen Netral')" title="Klik untuk perbesar">
+              <img src="images/wc_netral.png" alt="Word Cloud Netral" class="wc-img-responsive">
+              <div class="wc-zoom-overlay">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                <span>Perbesar</span>
+              </div>
+            </div>
+
+            <!-- Tags -->
+            <div style="margin-top: 0.85rem; display: flex; gap: 0.35rem; flex-wrap: wrap;">
+              <span class="wc-tag">nilai (40)</span>
+              <span class="wc-tag">indonesia (27)</span>
+              <span class="wc-tag">1970 (20)</span>
+              <span class="wc-tag">bank (18)</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Negatif -->
+          <div class="card-rounded" style="padding: 1.25rem; display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
+              <span class="badge-pill neg" style="font-size: 0.8rem; padding: 4px 10px;">
+                🔴 Negatif (172 Komentar)
+              </span>
+              <span style="font-size: 0.72rem; color: var(--text-dim);">Dominan: Koruptor, Tidak</span>
+            </div>
+
+            <!-- Image Wrap -->
+            <div class="wc-preview-box" onclick="openZoomModal('images/wc_negatif.png', 'Word Cloud - Sentimen Negatif')" title="Klik untuk perbesar">
+              <img src="images/wc_negatif.png" alt="Word Cloud Negatif" class="wc-img-responsive">
+              <div class="wc-zoom-overlay">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                <span>Perbesar</span>
+              </div>
+            </div>
+
+            <!-- Tags -->
+            <div style="margin-top: 0.85rem; display: flex; gap: 0.35rem; flex-wrap: wrap;">
+              <span class="wc-tag" style="color: #fb7185;">koruptor (86)</span>
+              <span class="wc-tag" style="color: #fb7185;">korupsi (43)</span>
+              <span class="wc-tag">sembako (22)</span>
+              <span class="wc-tag">harga (20)</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section Panorama Word Cloud Lengkap (Full Width) -->
+      <section class="card-rounded" style="margin-bottom: 1.75rem;">
+        <div class="chart-card-header">
+          <div>
+            <span class="chart-card-title">Panorama Word Cloud Utuh (3 Kategori Berjejer)</span>
+            <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 3px;">Tampilan penuh resolusi asli dari Google Colab (Klik untuk memperbesar layar penuh)</p>
+          </div>
+          <span class="badge-pill" style="background: rgba(79, 128, 255, 0.15); color: #60a5fa; cursor: pointer;" onclick="openZoomModal('images/wordcloud_sentimen.png', 'Panorama Lengkap 3 Kategori Word Cloud')">
+            🔍 Buka Fullscreen
+          </span>
+        </div>
+
+        <div class="wc-panorama-container" onclick="openZoomModal('images/wordcloud_sentimen.png', 'Panorama Lengkap 3 Kategori Word Cloud')">
+          <img src="images/wordcloud_sentimen.png" alt="Panorama Word Cloud" style="width: 100%; height: auto; display: block; border-radius: 12px;">
+        </div>
+      </section>
+
+      <!-- Section Top Words Bar Chart -->
+      <section class="card-rounded">
+        <div class="chart-card-header">
+          <div>
+            <span class="chart-card-title">Frekuensi Kata Terpopuler (Top 10 Token)</span>
+            <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 3px;">Frekuensi Kemunculan Kata Setelah Pembersihan Stopwords</p>
+          </div>
+          <select id="select-word-filter" style="background-color: #12151d; color: #cbd5e1; border: 1px solid var(--border-subtle); border-radius: 8px; font-size: 0.75rem; padding: 6px 12px; outline: none;">
+            <option value="overall">Semua Sentimen</option>
+            <option value="Positif">Khusus Positif</option>
+            <option value="Netral">Khusus Netral</option>
+            <option value="Negatif">Khusus Negatif</option>
+          </select>
+        </div>
+        <div style="height: 300px; position: relative;">
+          <canvas id="chart-top-words-bar"></canvas>
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB 5: DATA EXPLORER LENGKAP -->
+    <div id="view-explorer" class="view-panel" style="display: none;">
+      <section class="table-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <span class="chart-card-title">Dataset Lengkap 896 Komentar YouTube</span>
+            <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 3px;">Telah Dibersihkan dari Tag HTML, Emoji, dan Dinormalisasi</p>
+          </div>
+
+          <div style="display: flex; gap: 0.5rem; align-items: center;">
+            <select id="explorer-filter-sentiment" style="background-color: #12151d; color: #cbd5e1; border: 1px solid var(--border-subtle); border-radius: var(--radius-pill); font-size: 0.75rem; padding: 6px 14px; outline: none;">
+              <option value="ALL">Semua Sentimen</option>
+              <option value="1">Positif (+1)</option>
+              <option value="0">Netral (0)</option>
+              <option value="-1">Negatif (-1)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="overflow-x: auto; max-height: 600px;">
+          <table class="table-custom">
+            <thead style="position: sticky; top: 0; background-color: var(--bg-card); z-index: 10;">
+              <tr>
+                <th style="width: 50px;">No</th>
+                <th style="width: 170px;">Author</th>
+                <th>Komentar Lengkap</th>
+                <th style="width: 130px;">Sentimen</th>
+                <th style="width: 150px;">Aspek Isu</th>
+                <th style="width: 100px;">Tanggal</th>
+              </tr>
+            </thead>
+            <tbody id="full-comments-table-body">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB 6: LIVE TESTER SANDBOX -->
+    <div id="view-tester" class="view-panel" style="display: none;">
+      <section class="card-rounded" style="margin-bottom: 1.5rem;">
+        <div class="chart-card-header">
+          <div>
+            <span class="chart-card-title">Live Sentiment Testing Sandbox</span>
+            <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 3px;">Uji coba kalimat bahasa Indonesia (termasuk bahasa gaul, singkatan, dan negasi)</p>
+          </div>
+        </div>
+
+        <textarea class="sandbox-input-area" id="sandbox-textarea" rows="3" placeholder="Ketik kalimat atau komentar di sini... contoh: 'Sangat setuju pak menteri, redenominasi bikin nilai rupiah jadi simpel dan mantap!'"></textarea>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button class="action-btn-blue" style="background-color: #1e2433; color: #cbd5e1;" onclick="setSandboxSample('Sangat setuju pak menteri, transaksi jadi lebih cepat dan mantap!')">Contoh Positif</button>
+            <button class="action-btn-blue" style="background-color: #1e2433; color: #cbd5e1;" onclick="setSandboxSample('Bagaimana kesiapan teknis mesin ATM dan kasir di pasar tradisional pelosok?')">Contoh Netral</button>
+            <button class="action-btn-blue" style="background-color: #1e2433; color: #cbd5e1;" onclick="setSandboxSample('Gak setuju, koruptor malah gampang cuci uang simpanan di kamar kontrakan!')">Contoh Negatif</button>
+            <button class="action-btn-blue" style="background-color: #1e2433; color: #cbd5e1;" onclick="setSandboxSample('s7 bgt menkeu purbaya, gasss terus biar gk ribet ngitung rp!')">Contoh Gaul (Slang)</button>
+          </div>
+
+          <button class="action-btn-blue" id="btn-run-sandbox">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            Analisis Sentimen
+          </button>
+        </div>
+
+        <div id="sandbox-result-box" style="margin-top: 1.5rem; padding: 1.25rem; background-color: #11141c; border-radius: 14px; border: 1px solid var(--border-subtle); display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.9rem; font-weight: 700; color: #ffffff;">Hasil Klasifikasi Sentimen:</span>
+            <span id="sandbox-badge" class="badge-pill pos">Positif (+1)</span>
+          </div>
+          <p id="sandbox-explanation" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.6rem; line-height: 1.6;"></p>
+          <div id="sandbox-tokens-box" style="margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.8rem;"></div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- MODAL ZOOM GAMBAR LIGHTBOX -->
+  <div id="zoom-modal" class="zoom-modal" onclick="closeZoomModal(event)">
+    <div class="zoom-modal-dialog">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
+        <span id="zoom-modal-title" style="font-weight: 800; font-size: 1rem; color: #ffffff;">Word Cloud</span>
+        <button onclick="closeZoomModal()" style="background: rgba(255,255,255,0.1); border: none; color: #ffffff; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;">
+          ✕
+        </button>
+      </div>
+      <div style="text-align: center; background-color: #0c0f17; border-radius: 14px; padding: 0.75rem;">
+        <img id="zoom-modal-img" src="" alt="Zoomed" style="max-width: 100%; max-height: 75vh; border-radius: 8px; object-fit: contain;">
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
