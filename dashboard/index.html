@@ -115,6 +115,68 @@
 
     <!-- TAB 1: OVERVIEW -->
     <div id="view-overview" class="view-panel">
+
+      <!-- SECTION PENJELASAN PROJECT (HERO / INTRO CARD) -->
+      <section class="card-rounded" style="margin-bottom: 1.75rem; background: linear-gradient(135deg, #161922 0%, #1c2230 100%); border-left: 4px solid var(--accent-blue);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem;">
+              <span class="badge-pill" style="background: rgba(79, 128, 255, 0.15); color: #60a5fa; font-weight: 700;">
+                📌 Overview Penelitian
+              </span>
+              <span class="badge-pill" style="background: rgba(34, 197, 94, 0.15); color: #4ade80;">
+                Sains Data UNESA
+              </span>
+              <span class="badge-pill" style="background: rgba(148, 163, 184, 0.12); color: #cbd5e1;">
+                NLP &amp; Machine Learning
+              </span>
+            </div>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; letter-spacing: -0.3px;">
+              Analisis Sentimen Publik Terhadap Kebijakan Redenominasi Rupiah
+            </h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; max-width: 900px; line-height: 1.6;">
+              Proyek ini meneliti kecenderungan respon dan opini masyarakat Indonesia terhadap pernyataan <strong>Menteri Keuangan Purbaya Yudhi Sadewa</strong> terkait kebijakan redenominasi mata uang rupiah (penyederhanaan digit dengan menghilangkan 3 angka nol tanpa mengurangi nilai uang maupun daya beli masyarakat). Analisis dilakukan pada korpus data teks komentar YouTube menggunakan teknik pemrosesan bahasa alami (NLP) dan machine learning.
+            </p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.25rem;">
+            <span style="font-size: 0.72rem; color: var(--text-dim); font-weight: 600;">Tim Peneliti:</span>
+            <span style="font-size: 0.82rem; font-weight: 700; color: #e2e8f0;">Kartika Nur Savira • Sabrina • Variesa</span>
+            <span style="font-size: 0.72rem; color: #60a5fa;">Universitas Negeri Surabaya (UNESA)</span>
+          </div>
+        </div>
+
+        <!-- 3 Highlight Boxes -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.06);">
+          <div style="background: rgba(12, 15, 23, 0.5); border-radius: 12px; padding: 0.9rem 1rem; border: 1px solid rgba(255, 255, 255, 0.04);">
+            <p style="font-size: 0.78rem; font-weight: 700; color: #60a5fa; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.35rem;">
+              <span>🎯</span> Tujuan Penelitian
+            </p>
+            <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;">
+              Mengidentifikasi opini publik ke dalam sentimen <strong>Positif</strong>, <strong>Netral</strong>, dan <strong>Negatif</strong>, serta memetakan 4 aspek utama: isu pencucian uang koruptor, kesiapan uang fisik, dampak harga sembako, dan martabat rupiah.
+            </p>
+          </div>
+
+          <div style="background: rgba(12, 15, 23, 0.5); border-radius: 12px; padding: 0.9rem 1rem; border: 1px solid rgba(255, 255, 255, 0.04);">
+            <p style="font-size: 0.78rem; font-weight: 700; color: #34d399; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.35rem;">
+              <span>⚙️</span> Metodologi &amp; Alur NLP
+            </p>
+            <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;">
+              Scraping YouTube Data API v3, pembersihan teks &amp; normalisasi bahasa gaul/slang, *lexicon rule-based scoring*, ekstraksi fitur <strong>TF-IDF</strong> (Unigram+Bigram), serta komparasi model klasifikasi Naive Bayes dan SVM.
+            </p>
+          </div>
+
+          <div style="background: rgba(12, 15, 23, 0.5); border-radius: 12px; padding: 0.9rem 1rem; border: 1px solid rgba(255, 255, 255, 0.04);">
+            <p style="font-size: 0.78rem; font-weight: 700; color: #fbbf24; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.35rem;">
+              <span>💡</span> Temuan Utama
+            </p>
+            <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;">
+              Masyarakat bersikap <strong>Netral 42.7%</strong> dan <strong>Positif 38.1%</strong>. Sentimen negatif (19.2%) didominasi isu uang tunai koruptor dan risiko pembulatan harga sembako. Model <strong>Linear SVM</strong> meraih akurasi terbaik <strong>81.11%</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <!-- ROW 1: 4 KPI CARDS -->
       <section class="kpi-row">
         <!-- Card 1: Featured White Card -->
