@@ -116,38 +116,109 @@
     <!-- TAB 1: OVERVIEW -->
     <div id="view-overview" class="view-panel">
 
-      <!-- SECTION PENJELASAN PROJECT (HERO / INTRO CARD) -->
-      <section class="card-rounded" style="margin-bottom: 1.75rem; background: linear-gradient(135deg, #161922 0%, #1c2230 100%); border-left: 4px solid var(--accent-blue);">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
-          <div>
-            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem;">
-              <span class="badge-pill" style="background: rgba(79, 128, 255, 0.15); color: #60a5fa; font-weight: 700;">
-                📌 Overview Penelitian
-              </span>
-              <span class="badge-pill" style="background: rgba(34, 197, 94, 0.15); color: #4ade80;">
-                Sains Data UNESA
-              </span>
-              <span class="badge-pill" style="background: rgba(148, 163, 184, 0.12); color: #cbd5e1;">
-                NLP &amp; Machine Learning
-              </span>
+      <!-- SECTION PENJELASAN PROJECT & BERITA YOUTUBE HERO -->
+      <section class="card-rounded" style="margin-bottom: 1.75rem; background: linear-gradient(135deg, #161922 0%, #1a1f2c 100%); border-left: 4px solid var(--accent-blue); padding: 1.65rem;">
+        
+        <div style="display: grid; grid-template-columns: 1.45fr 1fr; gap: 1.75rem; align-items: stretch;">
+          
+          <!-- Kolom Kiri: Penjelasan Proyek & Konteks Berita -->
+          <div style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                <span class="badge-pill" style="background: rgba(79, 128, 255, 0.15); color: #60a5fa; font-weight: 700;">
+                  📌 Latar Belakang &amp; Konteks Berita
+                </span>
+                <span class="badge-pill" style="background: rgba(239, 68, 68, 0.15); color: #f87171; font-weight: 700;">
+                  🔴 YouTube News Corpus
+                </span>
+                <span class="badge-pill" style="background: rgba(34, 197, 94, 0.15); color: #4ade80;">
+                  Sains Data UNESA
+                </span>
+              </div>
+
+              <h2 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; letter-spacing: -0.3px; line-height: 1.35;">
+                Analisis Sentimen Publik Terhadap Kebijakan Redenominasi Rupiah
+              </h2>
+
+              <p style="font-size: 0.85rem; color: #cbd5e1; margin-top: 8px; line-height: 1.65;">
+                Proyek ini menganalisis kecenderungan respon dan opini masyarakat Indonesia terkait pernyataan <strong>Menteri Keuangan Purbaya Yudhi Sadewa</strong> mengenai rencana penyederhanaan pecahan mata uang rupiah (pemotongan 3 angka nol, misal Rp 1.000 menjadi Rp 1, tanpa mengurangi nilai riil maupun daya beli). 
+              </p>
+
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 6px; line-height: 1.6;">
+                Pemberitaan ini memicu perdebatan luas di media sosial: sebagian publik menyambut positif efisiensi transaksi dan martabat rupiah, sementara sebagian lainnya menyoroti risiko pencucian uang tunai timbunan koruptor, trauma sanering, dan kekhawatiran kenaikan harga sembako.
+              </p>
             </div>
-            <h2 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; letter-spacing: -0.3px;">
-              Analisis Sentimen Publik Terhadap Kebijakan Redenominasi Rupiah
-            </h2>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; max-width: 900px; line-height: 1.6;">
-              Proyek ini meneliti kecenderungan respon dan opini masyarakat Indonesia terhadap pernyataan <strong>Menteri Keuangan Purbaya Yudhi Sadewa</strong> terkait kebijakan redenominasi mata uang rupiah (penyederhanaan digit dengan menghilangkan 3 angka nol tanpa mengurangi nilai uang maupun daya beli masyarakat). Analisis dilakukan pada korpus data teks komentar YouTube menggunakan teknik pemrosesan bahasa alami (NLP) dan machine learning.
-            </p>
+
+            <!-- Meta Ringkas Proyek -->
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1rem; margin-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.06); flex-wrap: wrap;">
+              <div>
+                <span style="font-size: 0.7rem; color: var(--text-dim); font-weight: 600; display: block;">Tim Peneliti (Sains Data UNESA):</span>
+                <span style="font-size: 0.8rem; font-weight: 700; color: #e2e8f0;">Kartika Nur Savira • Sabrina • Variesa</span>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <span class="wc-tag" style="color: #60a5fa;">900 Komentar</span>
+                <span class="wc-tag" style="color: #34d399;">TF-IDF + SVM 81.11%</span>
+              </div>
+            </div>
           </div>
 
-          <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.25rem;">
-            <span style="font-size: 0.72rem; color: var(--text-dim); font-weight: 600;">Tim Peneliti:</span>
-            <span style="font-size: 0.82rem; font-weight: 700; color: #e2e8f0;">Kartika Nur Savira • Sabrina • Variesa</span>
-            <span style="font-size: 0.72rem; color: #60a5fa;">Universitas Negeri Surabaya (UNESA)</span>
+          <!-- Kolom Kanan: Kartu Berita & Thumbnail Video YouTube -->
+          <div style="background-color: #0c0f17; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1rem; display: flex; flex-direction: column; justify-content: space-between;">
+            
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
+                <span style="font-size: 0.72rem; font-weight: 700; color: #f87171; display: flex; align-items: center; gap: 0.35rem;">
+                  <span style="width: 7px; height: 7px; border-radius: 50%; background: #ef4444; display: inline-block;"></span>
+                  SUMBER DATA VIDEO
+                </span>
+                <span style="font-size: 0.7rem; color: var(--text-dim); font-family: monospace;">ID: y-2e6bqf70c</span>
+              </div>
+
+              <!-- Thumbnail Wrapper with Play Button -->
+              <a href="https://www.youtube.com/watch?v=y-2e6bqf70c" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: block; position: relative; border-radius: 12px; overflow: hidden; background: #000000; aspect-ratio: 16/9;" title="Tonton Video Sumber di YouTube">
+                <img 
+                  src="https://img.youtube.com/vi/y-2e6bqf70c/hqdefault.jpg" 
+                  onerror="this.onerror=null; this.src='images/project_hero_banner.png';"
+                  alt="Thumbnail Video YouTube Berita Redenominasi Menkeu" 
+                  style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.9; transition: transform 0.25s ease;"
+                  onmouseover="this.style.transform='scale(1.03)'" 
+                  onmouseout="this.style.transform='scale(1)'"
+                >
+                
+                <!-- Play Button Overlay -->
+                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.8) 100%); display: flex; flex-direction: column; justify-content: space-between; padding: 10px;">
+                  <span style="align-self: flex-start; background: rgba(0,0,0,0.75); color: #ffffff; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 6px;">
+                    YouTube News
+                  </span>
+                  <div style="align-self: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(239, 68, 68, 0.9); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.5);">
+                    <svg width="20" height="20" fill="#ffffff" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                  <span style="align-self: flex-end; background: rgba(0,0,0,0.75); color: #ffffff; font-size: 0.65rem; font-weight: 600; padding: 2px 6px; border-radius: 4px;">
+                    ▶ Buka Video
+                  </span>
+                </div>
+              </a>
+
+              <!-- News Title -->
+              <h3 style="font-size: 0.82rem; font-weight: 700; color: #ffffff; margin-top: 0.75rem; line-height: 1.4;">
+                Pernyataan Menkeu Purbaya Yudhi Sadewa Terkait Rencana Redenominasi Rupiah
+              </h3>
+            </div>
+
+            <!-- Video Meta & Link -->
+            <div style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid rgba(255, 255, 255, 0.06); display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.72rem; color: var(--text-dim);">900 Komentar Dianalisis</span>
+              <a href="https://www.youtube.com/watch?v=y-2e6bqf70c" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; font-weight: 700; color: #f87171; text-decoration: none; display: flex; align-items: center; gap: 0.25rem;">
+                Tonton di YouTube ↗
+              </a>
+            </div>
+
           </div>
+
         </div>
 
-        <!-- 3 Highlight Boxes -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.06);">
+        <!-- 3 Highlight Boxes (Tujuan, Alur NLP, Temuan) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; padding-top: 1.25rem; margin-top: 1.25rem; border-top: 1px solid rgba(255, 255, 255, 0.06);">
           <div style="background: rgba(12, 15, 23, 0.5); border-radius: 12px; padding: 0.9rem 1rem; border: 1px solid rgba(255, 255, 255, 0.04);">
             <p style="font-size: 0.78rem; font-weight: 700; color: #60a5fa; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.35rem;">
               <span>🎯</span> Tujuan Penelitian
@@ -175,6 +246,7 @@
             </p>
           </div>
         </div>
+
       </section>
 
       <!-- ROW 1: 4 KPI CARDS -->
