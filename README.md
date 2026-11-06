@@ -6,6 +6,8 @@
 [![Dashboard](https://img.shields.io/badge/Dashboard-Interactive%20Web-purple.svg)](dashboard/index.html)
 [![Institution](https://img.shields.io/badge/UNESA-Data%20Science-orange.svg)](#author)
 
+https://analisis-sentimen-redenominasi-rupiah.vercel.app/dashboard
+
 Proyek ini menganalisis opini dan sentimen publik masyarakat Indonesia terhadap wacana dan kebijakan redenominasi rupiah yang diangkat oleh Menteri Keuangan Purbaya Yudhi Sadewa berdasarkan data komentar platform YouTube.
 
 ---
